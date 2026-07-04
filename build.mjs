@@ -85,22 +85,11 @@ ${body}
 </html>`
 }
 
-function docFooter(active) {
-  const link = (href, label) => active === href
-    ? `<span>${label}</span>` : `<a href="${href}">${label}</a>`
-  return `<footer class="foot">
-  <div class="links">${link('/terms/', '用户协议')} ${link('/privacy/', '隐私政策')}</div>
-  <div>联系我们:在 App 内「我的 → 意见反馈」。</div>
-  <div style="margin-top:8px">© ${YEAR} ${SITE}</div>
-</footer>`
-}
-
-function renderDoc({ mdFile, out, title, desc, active }) {
+function renderDoc({ mdFile, out, title, desc }) {
   const src = readFileSync(new URL(`./content/${mdFile}`, import.meta.url), 'utf8')
   const html = md.render(src)
-  const body = `<header class="top"><a class="brand" href="/">← <b>${SITE}</b></a></header>
-<main class="wrap"><article class="doc">${html}</article></main>
-${docFooter(active)}`
+  // 纯单页:只有正文,无顶部返回、无页脚
+  const body = `<main class="wrap"><article class="doc">${html}</article></main>`
   const page = shell({ title, desc, body, doc: true })
   const path = new URL(`./dist/${out}`, import.meta.url)
   mkdirSync(dirname(path.pathname), { recursive: true })
@@ -116,11 +105,11 @@ console.log('构建法务站:')
 
 renderDoc({
   mdFile: 'terms.zh-Hans.md', out: 'terms/index.html',
-  title: '用户协议', desc: '紫月塔罗用户协议', active: '/terms/',
+  title: '用户协议', desc: '紫月塔罗用户协议',
 })
 renderDoc({
   mdFile: 'privacy.zh-Hans.md', out: 'privacy/index.html',
-  title: '隐私政策', desc: '紫月塔罗隐私政策', active: '/privacy/',
+  title: '隐私政策', desc: '紫月塔罗隐私政策',
 })
 
 // 落地页
