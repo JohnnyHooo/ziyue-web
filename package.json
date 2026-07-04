@@ -1,0 +1,13 @@
+{
+  "name": "ziyue-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "紫月塔罗 法务页 / 落地页(ziyue.app 顶域静态站)",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "markdown-it": "^14.1.0"
+  }
+}
