@@ -90,7 +90,7 @@ function docFooter(active) {
     ? `<span>${label}</span>` : `<a href="${href}">${label}</a>`
   return `<footer class="foot">
   <div class="links">${link('/terms/', '用户协议')} ${link('/privacy/', '隐私政策')}</div>
-  <div>联系我们:【待填写:联系邮箱】,或在 App 内「我的 → 意见反馈」。</div>
+  <div>联系我们:在 App 内「我的 → 意见反馈」。</div>
   <div style="margin-top:8px">© ${YEAR} ${SITE}</div>
 </footer>`
 }
