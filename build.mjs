@@ -151,8 +151,8 @@ function shell({ lang, title, desc, body, home = false }) {
 <meta name="description" content="${desc}">
 <meta name="robots" content="index,follow">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" href="/icon.jpg">
-<link rel="apple-touch-icon" href="/icon.jpg">
+<link rel="icon" href="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
 <style>${STYLE}</style>
 </head>
 <body class="${home ? 'home-page' : 'doc-page'}">
@@ -236,7 +236,7 @@ function renderDoc({ mdFile, out, lang, title, desc }) {
 rmSync(new URL('./dist', import.meta.url), { recursive: true, force: true })
 mkdirSync(new URL('./dist', import.meta.url), { recursive: true })
 copyFileSync(new URL('./src/orb.js', import.meta.url), new URL('./dist/orb.js', import.meta.url))
-copyFileSync(new URL('./src/icon.jpg', import.meta.url), new URL('./dist/icon.jpg', import.meta.url))
+copyFileSync(new URL('./src/icon.png', import.meta.url), new URL('./dist/icon.png', import.meta.url))
 writeFileSync(new URL('./dist/CNAME', import.meta.url), 'ziyue.app\n')
 
 console.log('构建落地页(6 语):')
