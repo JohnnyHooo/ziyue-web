@@ -3,7 +3,7 @@
 // 运行:npm i && npm run build。改文案改本文件或 content/*.md → npm run build → ./deploy.sh。
 
 import MarkdownIt from 'markdown-it'
-import { readFileSync, writeFileSync, mkdirSync, rmSync, copyFileSync, existsSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync, rmSync, copyFileSync, existsSync, cpSync } from 'node:fs'
 import { dirname } from 'node:path'
 
 const md = new MarkdownIt({ html: false, linkify: true, breaks: false, typographer: false })
@@ -238,6 +238,11 @@ mkdirSync(new URL('./dist', import.meta.url), { recursive: true })
 copyFileSync(new URL('./src/orb.js', import.meta.url), new URL('./dist/orb.js', import.meta.url))
 copyFileSync(new URL('./src/icon.png', import.meta.url), new URL('./dist/icon.png', import.meta.url))
 writeFileSync(new URL('./dist/CNAME', import.meta.url), 'ziyue.app\n')
+
+// static/ 原样拷进 dist(目前放的是「轻断食」App 的支持页与中英法务页,路径 /fastlite/…;
+// 与塔罗自己的 /terms、/en/privacy 互不影响)。dist 每次构建都会清空重建,所以这些文件必须留在源码里。
+if (existsSync(new URL('./static', import.meta.url)))
+  cpSync(new URL('./static', import.meta.url), new URL('./dist', import.meta.url), { recursive: true })
 
 console.log('构建落地页(6 语):')
 for (const k of ORDER) landing(k)
