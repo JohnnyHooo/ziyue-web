@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>用户协议 · 紫月塔罗</title>
+<meta name="description" content="紫月塔罗用户协议">
+<meta name="robots" content="index,follow">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<style>
+:root{
+  --bg:#FAFAF8; --card:#FFFFFF; --ink:#231F2A; --muted:#6E687A; --hair:#ECE8E2;
+  --accent:#6E52A6; --accent-soft:#F1EDF7; --maxw:720px;
+  --serif:"Songti SC","Noto Serif SC","SimSun",ui-serif,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans","Apple SD Gothic Neo","Microsoft YaHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0F0E15; --card:#17161F; --ink:#ECEAF2; --muted:#938DA6; --hair:#26232F; --accent:#B9A7EC; --accent-soft:#1D1B27; }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.8;font-size:16px;
+  -webkit-font-smoothing:antialiased;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+/* 法务文档正文(纯单页) */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:20px 24px 72px}
+.doc h1{font-family:var(--serif);font-size:27px;line-height:1.35;font-weight:700;margin:8px 0 2px}
+.doc h2{font-family:var(--serif);font-size:20px;font-weight:700;margin:38px 0 12px;padding-left:12px;border-left:3px solid var(--accent)}
+.doc h3{font-size:16px;font-weight:700;margin:24px 0 8px;color:var(--ink)}
+.doc p{margin:12px 0;color:var(--ink)} .doc strong{font-weight:700;color:var(--ink)}
+.doc ul,.doc ol{margin:12px 0;padding-left:22px} .doc li{margin:7px 0}
+.doc blockquote{margin:16px 0;padding:12px 16px;background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;color:var(--muted);font-size:14.5px}
+.doc blockquote p{margin:4px 0}
+.doc hr{border:0;border-top:1px solid var(--hair);margin:32px 0}
+.doc em{color:var(--muted);font-style:normal}
+.doc > p:first-of-type,.doc > p:nth-of-type(2){color:var(--muted);font-size:13.5px;margin:2px 0}
+
+/* 官网首页:仿 App 首页 Banner(黑底 + 紫微光 + 底部发光 + 星点 + 紫月球) */
+body.home-page{ --ink:#F4F0FB; --muted:rgba(240,236,250,.55); --hair:rgba(255,255,255,.14); --card:#191521; --accent:#C6A8FF;
+  color:#fff; background:#050409;
+  background-image:radial-gradient(640px 500px at 50% 20%, rgba(139,91,214,.24), transparent 62%), radial-gradient(1000px 360px at 50% 118%, rgba(139,91,214,.42), transparent 72%);
+  background-attachment:fixed; }
+body.home-page::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(1.3px 1.3px at 12% 22%, rgba(255,255,255,.55), transparent),
+    radial-gradient(1px 1px at 82% 16%, rgba(255,255,255,.42), transparent),
+    radial-gradient(1px 1px at 67% 33%, rgba(255,255,255,.36), transparent),
+    radial-gradient(1.4px 1.4px at 25% 60%, rgba(255,255,255,.32), transparent),
+    radial-gradient(1px 1px at 90% 56%, rgba(255,255,255,.36), transparent),
+    radial-gradient(1px 1px at 41% 12%, rgba(255,255,255,.3), transparent),
+    radial-gradient(1px 1px at 57% 74%, rgba(255,255,255,.28), transparent),
+    radial-gradient(1.2px 1.2px at 8% 46%, rgba(255,255,255,.32), transparent),
+    radial-gradient(1px 1px at 74% 82%, rgba(255,255,255,.26), transparent);}
+body.home-page .appstore{background:#fff;color:#141018}
+.lp{position:relative;z-index:1;min-height:100dvh;display:flex;flex-direction:column;max-width:600px;margin:0 auto;padding:0 30px}
+/* 右上角语言下拉(details/summary,免 JS 展开) */
+.langsw{position:fixed;top:14px;right:16px;z-index:20}
+.langsw summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+  padding:7px 12px;border-radius:999px;font-size:13px;color:var(--ink);
+  background:rgba(255,255,255,.07);border:1px solid var(--hair);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.langsw summary::-webkit-details-marker{display:none} .langsw summary::marker{content:""}
+.langsw .globe{width:15px;height:15px;opacity:.85} .langsw .cur{opacity:.95}
+.langsw .chev{width:11px;height:11px;opacity:.6;transition:transform .2s}
+.langsw[open] .chev{transform:rotate(180deg)}
+.langmenu{position:absolute;top:calc(100% + 8px);right:0;min-width:134px;
+  background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:6px;
+  box-shadow:0 18px 44px rgba(0,0,0,.35);display:flex;flex-direction:column}
+.langmenu a{padding:9px 12px;border-radius:9px;color:var(--muted);font-size:13.5px}
+.langmenu a:hover{background:rgba(255,255,255,.08);color:var(--ink);text-decoration:none}
+.langmenu a.on{color:var(--ink);font-weight:600}
+.lp-hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:36px 0 44px}
+.orb{width:min(300px,74vw);height:min(320px,78vw);display:block;margin:0 auto 4px;pointer-events:none}
+.lp-title{font-family:var(--serif);font-size:27px;font-weight:600;line-height:1.4;letter-spacing:.02em;margin:6px 0 0;color:var(--ink);transition:opacity .38s ease;min-height:2.6em;display:flex;align-items:center;max-width:520px}
+.lp-cta{margin:34px 0 0}
+.lp-foot{text-align:center;padding:22px 24px 34px;color:var(--muted);font-size:13px}
+.lp-foot .lp-ent{margin:0 auto 14px;font-size:11.5px;line-height:1.85;letter-spacing:.01em;opacity:.5;max-width:440px}
+.lp-foot .foot-nav{margin-bottom:10px} .lp-foot a{color:var(--muted)} .lp-foot .sep{margin:0 12px;opacity:.4}
+.lp-foot .cr{opacity:.6;font-size:12px;letter-spacing:.02em}
+
+/* App Store 按钮 */
+.appstore{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--bg);padding:11px 20px 11px 16px;border-radius:14px;text-decoration:none}
+.appstore:hover{text-decoration:none;opacity:.9} .appstore svg{flex:none}
+.as-txt{display:flex;flex-direction:column;line-height:1.12;text-align:left}
+.as-txt small{font-size:10px;opacity:.9;font-weight:400} .as-txt b{font-size:17px;font-weight:600;letter-spacing:.2px}
+/* hover 二维码浮窗(构建期内联 SVG) */
+.dl{position:relative;display:inline-block}
+.qrpop{position:absolute;bottom:calc(100% + 12px);left:50%;z-index:5;transform:translateX(-50%) translateY(6px) scale(.96);transform-origin:bottom center;
+  background:var(--card);border:1px solid var(--hair);border-radius:16px;padding:12px;box-shadow:0 16px 44px rgba(40,28,72,.18);
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease, transform .2s ease, visibility .2s}
+.dl:hover .qrpop, .dl:focus-within .qrpop{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0) scale(1)}
+.qrpop::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:7px solid transparent;border-top-color:var(--card)}
+.qr{width:132px;height:132px;background:#fff;border-radius:9px;padding:9px;box-sizing:border-box} .qr svg{display:block;width:100%;height:100%}
+@media (hover:none){ .qrpop{display:none} }</style>
+</head>
+<body class="doc-page">
+<main class="wrap"><article class="doc"><h1>紫月塔罗 · 用户协议</h1>
+<p><strong>生效日期：2026 年 7 月 4 日</strong>
+<strong>最近更新：2026 年 7 月 4 日</strong></p>
+<p>欢迎使用「紫月塔罗」（以下简称「本应用」或「本服务」）。本用户协议（以下简称「本协议」）是您与本应用开发者（以下简称「我们」或「开发者」）之间就您使用本应用所订立的协议。</p>
+<p>请您在使用本应用前，仔细阅读并充分理解本协议全部内容，尤其是以<strong>加粗</strong>方式标注的条款。<strong>您一经下载、安装、启动或使用本应用，即视为您已阅读、理解并同意接受本协议的全部约束。如您不同意本协议任何内容，请立即停止使用并卸载本应用。</strong></p>
+<p>如您未满所在国家或地区法律规定的完全民事行为能力年龄，请在您的父母或监护人陪同下阅读本协议，并在其同意后使用本应用。</p>
+<hr>
+<h2>一、服务内容</h2>
+<p>1.1 本应用是一款基于人工智能（AI）的塔罗娱乐应用，主要功能包括但不限于：</p>
+<ul>
+<li><strong>AI 塔罗占卜</strong>：您输入问题或选择占卜场景后，由本应用抽取塔罗牌并借助人工智能生成解读文字；</li>
+<li><strong>每日运势</strong>：以塔罗牌形式呈现的每日娱乐性内容；</li>
+<li><strong>语音交互</strong>：支持通过语音输入占卜问题，以及将解读内容朗读播放；</li>
+<li><strong>占卜记录</strong>：在本地保存您的历史占卜记录，供您回顾；</li>
+<li><strong>牌面图鉴与牌义查阅</strong>等辅助功能。</li>
+</ul>
+<p>1.2 我们有权根据运营需要，随时增加、修改、暂停或停止部分或全部功能，并会通过应用内提示、版本更新说明等合理方式通知您。</p>
+<hr>
+<h2>二、娱乐性声明与免责（重要，请务必阅读）</h2>
+<p><strong>本条为本协议的核心条款。您使用本应用，即表示您已充分阅读、理解并接受本条全部内容。</strong></p>
+<h3>2.1 仅供娱乐</h3>
+<p>本应用所提供的一切塔罗占卜、抽牌、每日运势、牌义、解读文本、语音朗读及其他相关内容（以下统称「占卜内容」），<strong>均仅供娱乐、休闲、消遣、自我探索与自我反思之目的。</strong> 占卜内容是一种以塔罗为主题的娱乐性体验，<strong>不代表任何客观事实、科学结论、预测或对未来的判断。</strong></p>
+<h3>2.2 不具有任何科学或超自然效力</h3>
+<p>您理解并认可：</p>
+<ul>
+<li>塔罗抽牌基于随机方式产生，解读由计算机程序与人工智能模型生成；</li>
+<li><strong>占卜内容不具有、本应用也从不主张其具有任何预测未来、揭示命运、改变运势或影响现实的效力；</strong></li>
+<li>占卜内容<strong>不是</strong>、也<strong>不应被理解为</strong>科学、医学、命理或任何形式的事实陈述；</li>
+<li>占卜内容的&quot;准确&quot;与否纯属巧合，<strong>本应用不对其真实性、准确性、可靠性作任何保证。</strong></li>
+</ul>
+<h3>2.3 不构成任何专业建议</h3>
+<p><strong>占卜内容不构成、也不得被视为任何领域的专业意见、诊断、评估或建议</strong>，包括但不限于以下任何方面：</p>
+<ul>
+<li><strong>医疗与健康</strong>：疾病诊断、治疗、用药、康复等；</li>
+<li><strong>精神与心理</strong>：心理咨询、精神诊断、心理治疗、情绪危机干预等；</li>
+<li><strong>法律</strong>：法律意见、诉讼、合同、维权等；</li>
+<li><strong>财务与投资</strong>：理财、投资、证券、加密资产、借贷、税务等；</li>
+<li><strong>婚恋与人际</strong>：婚姻、恋爱、家庭、亲子、社交关系的决策；</li>
+<li><strong>职业与教育</strong>：求职、择业、升学、创业、经营等重大安排；</li>
+<li><strong>人身与财产安全</strong>：任何涉及您或他人生命、健康、安全、重大财产的事项。</li>
+</ul>
+<p><strong>上述任何事项，请您务必咨询相应领域具备资质的持牌专业人士，并以其意见为准。</strong></p>
+<h3>2.4 不得替代专业帮助，不得延误求助</h3>
+<p><strong>您不得因本应用的任何占卜内容，而作出、拒绝、拖延或改变任何本应寻求专业帮助的行为。</strong></p>
+<ul>
+<li>若您有身体或精神方面的不适、症状或困扰，请及时就医或咨询专业人士，<strong>切勿依据占卜内容自我诊断、自我治疗或延误就医；</strong></li>
+<li><strong>若您正处于情绪危机、严重心理困扰，或有伤害自己或他人的念头，请立即联系当地的紧急救助电话、专业心理援助机构或您信任的人寻求帮助。本应用并非危机干预或心理援助工具，无法、也不会提供此类帮助。</strong></li>
+</ul>
+<h3>2.5 请理性使用，切勿过度依赖</h3>
+<ul>
+<li>占卜内容仅供参考与消遣，<strong>请您始终保持独立、理性的判断，切勿沉迷或产生心理依赖；</strong></li>
+<li>应用中的&quot;紫月&quot;等形象为<strong>人工智能生成的虚拟角色，并非真实的占卜师、命理师、咨询师或任何真人</strong>，其&quot;回应&quot;不代表任何真人的意见或承诺；</li>
+<li>请勿将占卜内容用于评判、操控、恐吓他人，或作为对他人作出承诺、预言的依据。</li>
+</ul>
+<h3>2.6 一切决定由您自负其责</h3>
+<p><strong>您应对自己的一切决定与行为负责。</strong></p>
+<ul>
+<li><strong>占卜内容不应成为您作出任何决策的依据，更不应成为唯一依据；</strong></li>
+<li>您基于、参考占卜内容，或因信赖占卜内容而作出、未作出的任何决定、行为及其一切后果，<strong>均由您自行承担全部责任；</strong></li>
+<li>在法律允许的最大范围内，<strong>开发者对您因使用占卜内容所导致或声称导致的任何损失、损害或不利后果，不承担任何责任。</strong> 具体责任限制另见本协议第十三条。</li>
+</ul>
+<h3>2.7 人工智能生成内容的固有局限</h3>
+<p>占卜内容由人工智能模型生成，<strong>具有概率性与不确定性，可能出现错误、编造、前后矛盾、冒犯性或不合时宜的表述</strong>，且不代表开发者的立场。相关说明详见本协议第九条。</p>
+<hr>
+<h2>三、使用资格与年龄要求</h2>
+<p>3.1 您应具备与您使用本应用相适应的民事行为能力。</p>
+<p>3.2 <strong>本应用面向具备一定辨别能力的用户。若您为未成年人，须在父母或监护人的同意与指导下使用；监护人应对未成年人使用本应用及其付费行为负监护及管理责任。</strong></p>
+<p>3.3 您承诺，您使用本应用不违反您所在国家或地区的法律法规。</p>
+<hr>
+<h2>四、账户与设备</h2>
+<p>4.1 本应用无需注册独立账户。您以设备本机方式使用本服务；部分功能（如跨设备同步）依赖您的 Apple 账户及 iCloud 服务。</p>
+<p>4.2 您应妥善保管您的设备及 Apple 账户。因您自身保管不善、设备丢失、被他人使用等导致的损失，由您自行承担。</p>
+<hr>
+<h2>五、付费服务、订阅与虚拟道具</h2>
+<p>5.1 <strong>会员订阅（Plus）</strong>
+本应用提供自动续订的会员订阅服务。会员权益、价格及订阅周期以您购买时应用内及 App Store 页面展示为准。</p>
+<ul>
+<li><strong>付款</strong>：订阅费用将在您确认购买时通过您的 Apple 账户扣取。</li>
+<li><strong>自动续订</strong>：<strong>订阅将自动续期。除非您在当前订阅期结束前至少 24 小时关闭自动续订，系统将在订阅期结束前 24 小时内按当时价格自动为下一周期扣费。</strong></li>
+<li><strong>管理与取消</strong>：您可随时在设备的「设置 → Apple 账户 → 订阅」中管理或取消订阅。取消将在当前已付费周期结束后生效，已开始的当前周期一般不予退款。</li>
+<li>如提供introductory（优惠）价格，其适用条件、时长及到期后的续费价格以应用内展示为准。</li>
+</ul>
+<p>5.2 <strong>占卜次卡（消耗型）</strong>
+占卜次卡为一次性消耗型虚拟道具，用于抵扣占卜等消耗。次卡一经购买并发放至您的余额，即视为交付完成。<strong>虚拟道具不可兑换现金、不可转让、不设有效期外的退款，法律强制性规定或本协议另有约定的除外。</strong></p>
+<p>5.3 <strong>价格与货币</strong>
+所有价格以您所在区域 App Store 展示的当地货币为准，可能因地区、汇率、税费及促销而不同。我们保留调整价格的权利，调整不影响您已完成的购买。</p>
+<p>5.4 <strong>退款</strong>
+本应用的所有付费均通过 Apple App Store 完成，<strong>退款事宜适用 Apple 的退款政策，并由 Apple 处理，我们无法直接为您办理 App Store 交易的退款。</strong> 您可通过 Apple 的相应渠道申请退款。前述不影响您依所在地法律享有的法定消费者权利。</p>
+<hr>
+<h2>六、邀请与奖励</h2>
+<p>6.1 本应用可能提供邀请好友获得次卡等奖励活动。奖励的具体规则、数量与发放条件以活动页面展示为准。</p>
+<p>6.2 <strong>您不得以虚假邀请、机器批量注册、多设备刷取、利用程序漏洞等任何不正当方式获取奖励。</strong> 一经发现，我们有权取消相应奖励、扣回已发放的道具，并视情节暂停或终止您对相关功能的使用。</p>
+<hr>
+<h2>七、用户行为规范</h2>
+<p>7.1 您承诺合法、正当地使用本应用，不得利用本应用从事任何违法违规或侵害他人合法权益的行为，包括但不限于：</p>
+<ul>
+<li>输入或传播违法、暴力、色情、仇恨、骚扰、虚假或侵犯他人权利的内容；</li>
+<li>对本应用进行反向工程、反编译、破解、爬取、批量抓取或未经授权的访问；</li>
+<li>干扰、破坏本服务或服务器、网络的正常运行，或规避、破坏任何安全或计费机制；</li>
+<li>冒用他人身份，或将本应用用于误导、欺诈他人的用途；</li>
+<li>利用本应用的占卜或解读内容，对他人进行恐吓、精神操控或作出不当承诺。</li>
+</ul>
+<p>7.2 您对您通过本应用输入的内容（如占卜问题）负全部责任，并保证其不侵犯任何第三方权利、不违反法律法规。</p>
+<hr>
+<h2>八、用户输入内容与授权</h2>
+<p>8.1 「用户输入内容」指您在使用本应用过程中主动提供的信息，例如占卜问题文本、语音等。</p>
+<p>8.2 为向您提供服务（如生成解读、语音识别与朗读），您授权我们及为实现相应功能所必需的第三方服务，对用户输入内容进行处理。相关个人信息的处理规则详见《隐私政策》。</p>
+<p>8.3 您保证对所提交的内容拥有合法权利。您同意，我们可在<strong>去标识化</strong>的前提下，将相关数据用于改进模型与服务质量，具体以《隐私政策》为准。</p>
+<hr>
+<h2>九、人工智能生成内容说明</h2>
+<p>9.1 本应用的解读等内容由人工智能模型生成。<strong>AI 生成内容具有概率性与不确定性，可能出现错误、编造、前后不一致或不符合您预期的情况，不代表开发者的立场或事实陈述。</strong></p>
+<p>9.2 您应对 AI 生成内容自行判断、审慎使用。请勿将其用于任何需要准确性、专业性或权威性的场景。</p>
+<p>9.3 在法律允许的范围内，我们对 AI 生成内容的准确性、适用性、完整性不作任何明示或默示的保证。</p>
+<hr>
+<h2>十、知识产权</h2>
+<p>10.1 本应用及其包含的界面设计、牌面美术、图标、文案、程序代码、商标、标识（含「紫月」等名称与形象）及其他内容，其知识产权由开发者或相应权利人享有，受法律保护。</p>
+<p>10.2 未经我们事先书面许可，您不得复制、修改、传播、出售、出租、再许可或以其他方式商业性使用上述内容。</p>
+<p>10.3 我们授予您一项有限的、可撤销的、非独占的、不可转让的许可，仅供您为个人非商业目的、按本协议约定正常使用本应用。</p>
+<hr>
+<h2>十一、第三方服务</h2>
+<p>11.1 本应用的部分功能依赖第三方服务实现，包括但不限于：Apple 提供的 App Store 内购与 iCloud 服务，以及用于生成解读、语音识别与语音合成的人工智能服务提供商。</p>
+<p>11.2 前述第三方服务由其各自的服务条款与隐私政策约束。<strong>因第三方服务自身原因（如中断、故障、政策变更）导致的影响，我们在法律允许范围内不承担由此产生的责任。</strong></p>
+<hr>
+<h2>十二、服务的变更、中断与终止</h2>
+<p>12.1 我们可能因系统维护、升级、故障、不可抗力或经营策略调整等原因，暂时或永久地变更、中断或终止全部或部分服务。</p>
+<p>12.2 若您违反本协议，我们有权视情节采取限制功能、暂停或终止向您提供服务等措施。</p>
+<p>12.3 服务终止不影响终止前已产生的权利义务；对于消耗型虚拟道具，除法律强制性规定外，一般不予退还。</p>
+<hr>
+<h2>十三、免责声明与责任限制</h2>
+<p>13.1 <strong>本应用按「现状」（as is）与「现有」（as available）基础提供。在法律允许的最大范围内，我们不对本服务的适销性、特定用途适用性、不中断、及时性、无错误、安全性或结果准确性作出任何明示或默示的保证。</strong></p>
+<p>13.2 <strong>在法律允许的最大范围内，我们不对下列情形承担责任：</strong></p>
+<ul>
+<li>您<strong>信赖、参考或使用占卜内容</strong>而作出或未作出任何决定、行为，及由此产生的一切后果（详见第二条）；</li>
+<li>占卜内容或 AI 生成内容的任何错误、不准确、遗漏、冒犯或不合时宜；</li>
+<li>因您延误、拒绝或改变寻求医疗、心理、法律、财务等专业帮助而产生的任何后果；</li>
+<li>服务的中断、延迟、故障、数据丢失或损坏；</li>
+<li>因您的设备、网络、Apple 账户或第三方服务原因造成的问题；</li>
+<li>因<strong>不可抗力</strong>（如自然灾害、政府行为、网络中断、电力故障、第三方服务停止等）造成的无法履行或延迟履行。</li>
+</ul>
+<p>13.3 <strong>在法律允许的最大范围内，对于因使用或无法使用本应用而产生的任何间接、偶然、特殊、惩罚性或后果性损失（包括但不限于利润损失、数据丢失、商誉损失、精神损害），我们不承担责任，即使我们已被告知此类损失的可能性。</strong></p>
+<p>13.4 <strong>在法律允许的最大范围内，我们就本协议及本服务对您承担的全部累计责任，以您在导致责任产生的事件发生前 6 个月内就本应用实际支付给我们（经 Apple）的金额为限；若您未曾付费，则我们的累计责任以适用法律允许的最低限额为限。</strong></p>
+<p>13.5 本条款不排除或限制依所在地强制性法律不可排除或限制的责任（例如：不可排除的法定消费者权利、因我们的故意或重大过失导致的人身伤害或死亡等）。若某项免责或限制被认定为无效，其余部分仍应在法律允许的范围内继续有效。</p>
+<hr>
+<h2>十四、适用法律与争议解决</h2>
+<p>14.1 本协议的订立、效力、解释、履行及争议解决，适用开发者主要经营所在地的法律；<strong>同时，您依所在国家或地区法律享有的、不可通过协议排除的强制性消费者权利，不受影响。</strong></p>
+<p>14.2 因本协议产生的争议，双方应首先友好协商解决；协商不成的，可依法向有管辖权的机构提起。</p>
+<hr>
+<h2>十五、协议的变更</h2>
+<p>15.1 我们可能不时修订本协议。修订后的协议将通过应用内公示、更新生效日期等方式公布。</p>
+<p>15.2 <strong>协议变更后，若您继续使用本应用，即视为您接受修订后的协议；如您不同意，应停止使用。</strong></p>
+<hr>
+<h2>十六、联系我们</h2>
+<p>如您对本协议有任何疑问、意见或投诉，可通过应用内「我的 → 意见反馈」联系我们。</p>
+<hr>
+<p><em>本协议应与《隐私政策》一并阅读。两者共同构成您与我们之间关于本应用的完整约定。</em></p>
+</article></main>
+</body>
+</html>

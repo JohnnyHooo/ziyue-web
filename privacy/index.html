@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>隐私政策 · 紫月塔罗</title>
+<meta name="description" content="紫月塔罗隐私政策">
+<meta name="robots" content="index,follow">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<style>
+:root{
+  --bg:#FAFAF8; --card:#FFFFFF; --ink:#231F2A; --muted:#6E687A; --hair:#ECE8E2;
+  --accent:#6E52A6; --accent-soft:#F1EDF7; --maxw:720px;
+  --serif:"Songti SC","Noto Serif SC","SimSun",ui-serif,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans","Apple SD Gothic Neo","Microsoft YaHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0F0E15; --card:#17161F; --ink:#ECEAF2; --muted:#938DA6; --hair:#26232F; --accent:#B9A7EC; --accent-soft:#1D1B27; }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.8;font-size:16px;
+  -webkit-font-smoothing:antialiased;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+/* 法务文档正文(纯单页) */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:20px 24px 72px}
+.doc h1{font-family:var(--serif);font-size:27px;line-height:1.35;font-weight:700;margin:8px 0 2px}
+.doc h2{font-family:var(--serif);font-size:20px;font-weight:700;margin:38px 0 12px;padding-left:12px;border-left:3px solid var(--accent)}
+.doc h3{font-size:16px;font-weight:700;margin:24px 0 8px;color:var(--ink)}
+.doc p{margin:12px 0;color:var(--ink)} .doc strong{font-weight:700;color:var(--ink)}
+.doc ul,.doc ol{margin:12px 0;padding-left:22px} .doc li{margin:7px 0}
+.doc blockquote{margin:16px 0;padding:12px 16px;background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;color:var(--muted);font-size:14.5px}
+.doc blockquote p{margin:4px 0}
+.doc hr{border:0;border-top:1px solid var(--hair);margin:32px 0}
+.doc em{color:var(--muted);font-style:normal}
+.doc > p:first-of-type,.doc > p:nth-of-type(2){color:var(--muted);font-size:13.5px;margin:2px 0}
+
+/* 官网首页:仿 App 首页 Banner(黑底 + 紫微光 + 底部发光 + 星点 + 紫月球) */
+body.home-page{ --ink:#F4F0FB; --muted:rgba(240,236,250,.55); --hair:rgba(255,255,255,.14); --card:#191521; --accent:#C6A8FF;
+  color:#fff; background:#050409;
+  background-image:radial-gradient(640px 500px at 50% 20%, rgba(139,91,214,.24), transparent 62%), radial-gradient(1000px 360px at 50% 118%, rgba(139,91,214,.42), transparent 72%);
+  background-attachment:fixed; }
+body.home-page::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(1.3px 1.3px at 12% 22%, rgba(255,255,255,.55), transparent),
+    radial-gradient(1px 1px at 82% 16%, rgba(255,255,255,.42), transparent),
+    radial-gradient(1px 1px at 67% 33%, rgba(255,255,255,.36), transparent),
+    radial-gradient(1.4px 1.4px at 25% 60%, rgba(255,255,255,.32), transparent),
+    radial-gradient(1px 1px at 90% 56%, rgba(255,255,255,.36), transparent),
+    radial-gradient(1px 1px at 41% 12%, rgba(255,255,255,.3), transparent),
+    radial-gradient(1px 1px at 57% 74%, rgba(255,255,255,.28), transparent),
+    radial-gradient(1.2px 1.2px at 8% 46%, rgba(255,255,255,.32), transparent),
+    radial-gradient(1px 1px at 74% 82%, rgba(255,255,255,.26), transparent);}
+body.home-page .appstore{background:#fff;color:#141018}
+.lp{position:relative;z-index:1;min-height:100dvh;display:flex;flex-direction:column;max-width:600px;margin:0 auto;padding:0 30px}
+/* 右上角语言下拉(details/summary,免 JS 展开) */
+.langsw{position:fixed;top:14px;right:16px;z-index:20}
+.langsw summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+  padding:7px 12px;border-radius:999px;font-size:13px;color:var(--ink);
+  background:rgba(255,255,255,.07);border:1px solid var(--hair);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.langsw summary::-webkit-details-marker{display:none} .langsw summary::marker{content:""}
+.langsw .globe{width:15px;height:15px;opacity:.85} .langsw .cur{opacity:.95}
+.langsw .chev{width:11px;height:11px;opacity:.6;transition:transform .2s}
+.langsw[open] .chev{transform:rotate(180deg)}
+.langmenu{position:absolute;top:calc(100% + 8px);right:0;min-width:134px;
+  background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:6px;
+  box-shadow:0 18px 44px rgba(0,0,0,.35);display:flex;flex-direction:column}
+.langmenu a{padding:9px 12px;border-radius:9px;color:var(--muted);font-size:13.5px}
+.langmenu a:hover{background:rgba(255,255,255,.08);color:var(--ink);text-decoration:none}
+.langmenu a.on{color:var(--ink);font-weight:600}
+.lp-hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:36px 0 44px}
+.orb{width:min(300px,74vw);height:min(320px,78vw);display:block;margin:0 auto 4px;pointer-events:none}
+.lp-title{font-family:var(--serif);font-size:27px;font-weight:600;line-height:1.4;letter-spacing:.02em;margin:6px 0 0;color:var(--ink);transition:opacity .38s ease;min-height:2.6em;display:flex;align-items:center;max-width:520px}
+.lp-cta{margin:34px 0 0}
+.lp-foot{text-align:center;padding:22px 24px 34px;color:var(--muted);font-size:13px}
+.lp-foot .lp-ent{margin:0 auto 14px;font-size:11.5px;line-height:1.85;letter-spacing:.01em;opacity:.5;max-width:440px}
+.lp-foot .foot-nav{margin-bottom:10px} .lp-foot a{color:var(--muted)} .lp-foot .sep{margin:0 12px;opacity:.4}
+.lp-foot .cr{opacity:.6;font-size:12px;letter-spacing:.02em}
+
+/* App Store 按钮 */
+.appstore{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--bg);padding:11px 20px 11px 16px;border-radius:14px;text-decoration:none}
+.appstore:hover{text-decoration:none;opacity:.9} .appstore svg{flex:none}
+.as-txt{display:flex;flex-direction:column;line-height:1.12;text-align:left}
+.as-txt small{font-size:10px;opacity:.9;font-weight:400} .as-txt b{font-size:17px;font-weight:600;letter-spacing:.2px}
+/* hover 二维码浮窗(构建期内联 SVG) */
+.dl{position:relative;display:inline-block}
+.qrpop{position:absolute;bottom:calc(100% + 12px);left:50%;z-index:5;transform:translateX(-50%) translateY(6px) scale(.96);transform-origin:bottom center;
+  background:var(--card);border:1px solid var(--hair);border-radius:16px;padding:12px;box-shadow:0 16px 44px rgba(40,28,72,.18);
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease, transform .2s ease, visibility .2s}
+.dl:hover .qrpop, .dl:focus-within .qrpop{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0) scale(1)}
+.qrpop::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:7px solid transparent;border-top-color:var(--card)}
+.qr{width:132px;height:132px;background:#fff;border-radius:9px;padding:9px;box-sizing:border-box} .qr svg{display:block;width:100%;height:100%}
+@media (hover:none){ .qrpop{display:none} }</style>
+</head>
+<body class="doc-page">
+<main class="wrap"><article class="doc"><h1>紫月塔罗 · 隐私政策</h1>
+<p><strong>生效日期：2026 年 7 月 4 日</strong>
+<strong>最近更新：2026 年 7 月 4 日</strong></p>
+<p>本隐私政策说明「紫月塔罗」（以下简称「本应用」）的开发者（以下简称「我们」）如何收集、使用、存储、共享和保护您的信息，以及您就个人信息享有的权利。</p>
+<p><strong>我们高度重视您的隐私。请您在使用本应用前仔细阅读本政策。</strong> 一经使用本应用，即表示您已理解并同意本政策所述的信息处理方式。如您不同意，请停止使用本应用。</p>
+<p>本政策应与《用户协议》一并阅读。</p>
+<hr>
+<h2>一、我们的基本原则</h2>
+<ul>
+<li><strong>最小必要</strong>：我们只收集为向您提供功能所必需的信息。</li>
+<li><strong>不做广告追踪</strong>：本应用<strong>不使用广告标识符（IDFA/IDFV）</strong>，<strong>不接入任何第三方广告、分析或崩溃统计 SDK</strong>，不进行跨应用追踪。</li>
+<li><strong>不出售数据</strong>：我们<strong>不会出售</strong>您的个人信息。</li>
+<li><strong>本地优先</strong>：您的占卜记录默认保存在您的设备本地。</li>
+</ul>
+<hr>
+<h2>二、我们收集的信息</h2>
+<p>我们仅在您使用相应功能时，收集下列信息：</p>
+<h3>2.1 您主动提供的信息</h3>
+<ul>
+<li><strong>占卜问题与对话内容</strong>：您输入的占卜问题文本、追问的对话内容。用于生成解读。</li>
+<li><strong>语音音频</strong>：当您使用语音输入时，您的一段录音（音频）会被采集，用于转写为文字。</li>
+<li><strong>意见反馈信息</strong>：当您提交意见反馈时，您填写的反馈内容、<strong>您可自愿填写的联系方式</strong>（如邮箱），以及您可选择附加的图片。</li>
+</ul>
+<h3>2.2 占卜与使用相关信息</h3>
+<ul>
+<li><strong>抽牌与解读数据</strong>：每次占卜抽到的牌（牌位、牌名、正逆位等）、所选占卜场景、生成的解读文本、以及您对解读的点赞/点踩评价。</li>
+</ul>
+<h3>2.3 设备与技术信息</h3>
+<ul>
+<li><strong>设备标识</strong>：本应用会在您的设备上生成一个<strong>随机的应用内标识符（UUID）</strong>，用于反馈归属、邀请奖励防刷等。<strong>该标识由本应用自行生成，并非苹果广告标识符（IDFA/IDFV），不能用于跨应用追踪。</strong></li>
+<li><strong>设备基本信息</strong>：在您提交反馈或参与邀请等场景时，可能随请求附带：设备型号、操作系统版本、应用版本、语言与地区设置。</li>
+</ul>
+<h3>2.4 交易信息</h3>
+<ul>
+<li>当您进行内购或订阅时，交易通过 Apple App Store 完成。我们会收到 Apple 提供的<strong>交易凭证</strong>用于校验发放权益。<strong>我们不会收集、也无法获取您的银行卡号等完整支付信息</strong>——支付由 Apple 处理。</li>
+</ul>
+<h3>2.5 我们不收集的信息</h3>
+<p>我们<strong>不收集</strong>：您的精确地理位置、通讯录、相册照片（除您主动为反馈附加的图片外）、日历、健康数据，也<strong>不获取广告标识符</strong>。</p>
+<hr>
+<h2>三、我们如何使用信息</h2>
+<p>我们将所收集的信息用于以下目的：</p>
+<ol>
+<li><strong>提供核心功能</strong>：根据您的问题与抽牌生成塔罗解读；进行语音转写与语音朗读；推荐牌阵、判断问题完整性。</li>
+<li><strong>保存与同步记录</strong>：在本地保存您的占卜记录；在您开启相应功能时，通过您的 iCloud 同步记录（见第五条）。</li>
+<li><strong>发放与校验权益</strong>：校验内购交易、发放会员权益与占卜次卡、处理邀请与兑换奖励并防止作弊。</li>
+<li><strong>处理反馈与提供支持</strong>：回应您的意见反馈与问题。</li>
+<li><strong>改进服务</strong>：在<strong>去标识化</strong>的前提下，分析与改进解读质量、稳定性与体验。</li>
+<li><strong>安全与合规</strong>：防范滥用、欺诈，保障服务安全，履行法律义务。</li>
+</ol>
+<h3>处理的法律依据（面向欧洲经济区/英国等用户）</h3>
+<ul>
+<li><strong>履行合同所必需</strong>：为向您提供您所请求的功能（如占卜解读、语音、内购）。</li>
+<li><strong>您的同意</strong>：如语音音频处理、可选的联系方式等；您可随时撤回同意。</li>
+<li><strong>我们的合法利益</strong>：如防范作弊、保障安全、在去标识化前提下改进服务，且不凌驾于您的权利之上。</li>
+<li><strong>履行法律义务</strong>：如适用法律要求时。</li>
+</ul>
+<hr>
+<h2>四、信息如何共享与第三方处理</h2>
+<p>为实现相应功能，您的部分信息会被传输给下列服务方处理。<strong>这些服务方仅按我们的指示、为实现相应功能而处理数据，不得用于其自身目的。</strong></p>
+<h3>4.1 我们的服务器</h3>
+<p>本应用的占卜、语音、反馈等请求会发送至我们运营的服务器进行处理与转发。具体而言：</p>
+<ul>
+<li><strong>生成解读</strong>：您的<strong>占卜问题、抽牌数据、追问对话、语言设置</strong>会发送至我们的服务器，并由服务器转发给<strong>人工智能大模型服务提供商</strong>以生成解读文本。</li>
+<li><strong>语音识别</strong>：您的<strong>录音音频</strong>会发送至我们的服务器，用于调用<strong>语音识别服务</strong>转写为文字。</li>
+<li><strong>语音合成（朗读）</strong>：需要朗读的<strong>解读文本</strong>会发送至我们的服务器，用于调用<strong>语音合成服务</strong>生成音频。</li>
+<li><strong>反馈与邀请</strong>：您提交的<strong>反馈内容、可选联系方式、设备信息、应用内标识符</strong>会发送至我们的服务器。</li>
+</ul>
+<p>我们对人工智能相关服务采用<strong>服务端代理</strong>方式：相关第三方模型的密钥仅保存在我们的服务器，<strong>本应用不会将您的数据直接发送给这些第三方，也不会在本应用内接触其密钥</strong>。</p>
+<h3>4.2 Apple（苹果公司）</h3>
+<ul>
+<li><strong>App 内购与订阅</strong>：交易由 Apple App Store 处理与校验。</li>
+<li><strong>iCloud</strong>：如您开启同步，相关数据存储于<strong>您自己的 iCloud</strong>（见第五条）。</li>
+<li><strong>语音识别（系统能力）</strong>：本应用在部分场景使用 Apple 系统提供的语音识别能力。<strong>在较新的系统版本上，语音识别可在您的设备本地完成；在部分较旧系统版本上，Apple 的语音识别可能需要将语音发送至 Apple 处理。</strong> 该处理适用 Apple 的隐私政策。</li>
+</ul>
+<h3>4.3 我们不会</h3>
+<ul>
+<li>不向任何第三方<strong>出售</strong>您的个人信息；</li>
+<li>不将您的个人信息用于第三方广告；</li>
+<li>除本政策所述、经您同意、或法律要求外，不向其他第三方共享您的个人信息。</li>
+</ul>
+<hr>
+<h2>五、本地存储与 iCloud 同步</h2>
+<ul>
+<li><strong>本地存储</strong>：您的占卜记录、每日运势、应用设置默认存储在您的<strong>设备本地</strong>。占卜次卡余额等资产信息存储在设备的 <strong>钥匙串（Keychain）</strong> 中。</li>
+<li><strong>iCloud 同步（会员功能）</strong>：当您为会员并<strong>主动开启同步开关</strong>后，本应用会通过 <strong>iCloud（键值存储）</strong> 在您的多台设备间同步占卜记录与每日运势。占卜次卡余额通过 <strong>iCloud 钥匙串</strong> 在您登录同一 Apple 账户的设备间共享。<strong>上述同步均发生在您自己的 iCloud 空间内，我们不运营独立的云端账户来集中存储这些同步内容。</strong> 您可随时在应用内关闭同步。</li>
+</ul>
+<hr>
+<h2>六、数据存储地点与跨境传输</h2>
+<p>我们的服务器及所使用的人工智能服务提供商可能位于您所在国家或地区<strong>以外</strong>。因此，您使用本应用相关功能时，您的部分信息可能被传输至境外并在境外处理。</p>
+<p>对于来自欧洲经济区、英国等地区的用户，在进行此类跨境传输时，我们将采取符合适用法律的保障措施（如采用标准合同条款等），以保护您的信息。使用本应用即表示您了解并同意此类必要的跨境传输。</p>
+<hr>
+<h2>七、数据保留</h2>
+<ul>
+<li><strong>我们仅在实现本政策所述目的所必需的期限内保留您的信息。</strong></li>
+<li><strong>占卜请求</strong>主要用于即时生成解读；解读记录本身主要保存在<strong>您的设备本地</strong>，由您掌控，您可随时删除。</li>
+<li><strong>反馈信息</strong>在处理完毕后保留合理期限，以便持续跟进与改进。</li>
+<li>当信息不再为上述目的所必需，或您行使删除权利时，我们将在合理期限内删除或匿名化处理相关信息，法律另有保留要求的除外。</li>
+</ul>
+<hr>
+<h2>八、数据安全</h2>
+<p>我们采取合理的技术与管理措施保护您的信息，包括：全程使用 <strong>HTTPS 加密传输</strong>；对访问服务器的请求进行<strong>鉴权与签名校验</strong>；敏感的资产信息（次卡余额）存储于设备<strong>钥匙串</strong>。</p>
+<p>但请您理解，<strong>互联网环境并非绝对安全</strong>，我们无法保证信息百分之百的安全。请您妥善保管您的设备与 Apple 账户。</p>
+<hr>
+<h2>九、您的权利</h2>
+<p>在适用法律允许的范围内，您就您的个人信息享有以下权利：</p>
+<ul>
+<li><strong>访问与获取</strong>：了解并获取我们处理的您的个人信息副本；</li>
+<li><strong>更正</strong>：更正不准确的信息；</li>
+<li><strong>删除</strong>：请求删除您的个人信息（您也可直接在应用内删除占卜记录）；</li>
+<li><strong>限制与反对处理</strong>：在特定情形下限制或反对我们对信息的处理；</li>
+<li><strong>撤回同意</strong>：对于基于您同意进行的处理，您可随时撤回，且不影响撤回前处理的合法性；</li>
+<li><strong>数据可携</strong>：在技术可行时，以结构化、通用格式获取您所提供的信息；</li>
+<li><strong>投诉</strong>：向您所在地的数据保护监管机构投诉。</li>
+</ul>
+<p>您可通过本应用「我的 → 意见反馈」或第十二条所列联系方式行使上述权利。我们将在适用法律规定的期限内回应。您也可以：在应用内删除占卜记录、关闭 iCloud 同步、在系统「设置」中撤销授予本应用的权限。</p>
+<hr>
+<h2>十、系统权限说明</h2>
+<p>本应用可能在您使用相应功能时，请求以下系统权限。您可随时在设备「设置」中开启或关闭：</p>
+<ul>
+<li><strong>麦克风</strong>：用于语音输入您想问的占卜问题；</li>
+<li><strong>语音识别</strong>：用于将您的语音转写为文字提问；</li>
+<li><strong>相册（仅添加）</strong>：用于将邀请卡等图片保存到您的相册。</li>
+</ul>
+<p>本应用<strong>不申请</strong>相机、定位、通讯录、相册读取等权限。</p>
+<hr>
+<h2>十一、儿童隐私</h2>
+<p>本应用并非面向儿童设计。<strong>我们不会在知情的情况下收集儿童的个人信息。</strong> 若您是父母或监护人，且发现您监护的儿童在未经同意的情况下向我们提供了个人信息，请通过第十二条与我们联系，我们将采取措施删除相关信息。若您为未成年人，请在父母或监护人的同意与指导下使用本应用。</p>
+<hr>
+<h2>十二、Cookie 与追踪技术</h2>
+<p>本应用为原生移动应用，<strong>不使用 Cookie 进行追踪，不进行跨应用或跨网站的行为追踪。</strong></p>
+<hr>
+<h2>十三、本政策的更新</h2>
+<p>我们可能不时更新本政策。更新后的政策将通过应用内公示并更新「最近更新」日期的方式发布。<strong>若涉及重大变更，我们将以更显著的方式通知您。</strong> 更新生效后您继续使用本应用，即视为接受更新后的政策。</p>
+<hr>
+<h2>十四、联系我们</h2>
+<p>如您对本政策、您的个人信息或您的权利有任何疑问、请求或投诉，可通过应用内「我的 → 意见反馈」联系我们，我们将尽快予以回应。</p>
+<hr>
+<p><em>本政策的最终解释在符合适用法律的前提下归开发者所有。</em></p>
+</article></main>
+</body>
+</html>

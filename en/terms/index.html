@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Terms of Service · Ziyue Tarot</title>
+<meta name="description" content="Ziyue Tarot Terms of Service">
+<meta name="robots" content="index,follow">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<style>
+:root{
+  --bg:#FAFAF8; --card:#FFFFFF; --ink:#231F2A; --muted:#6E687A; --hair:#ECE8E2;
+  --accent:#6E52A6; --accent-soft:#F1EDF7; --maxw:720px;
+  --serif:"Songti SC","Noto Serif SC","SimSun",ui-serif,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans","Apple SD Gothic Neo","Microsoft YaHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0F0E15; --card:#17161F; --ink:#ECEAF2; --muted:#938DA6; --hair:#26232F; --accent:#B9A7EC; --accent-soft:#1D1B27; }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.8;font-size:16px;
+  -webkit-font-smoothing:antialiased;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+/* 法务文档正文(纯单页) */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:20px 24px 72px}
+.doc h1{font-family:var(--serif);font-size:27px;line-height:1.35;font-weight:700;margin:8px 0 2px}
+.doc h2{font-family:var(--serif);font-size:20px;font-weight:700;margin:38px 0 12px;padding-left:12px;border-left:3px solid var(--accent)}
+.doc h3{font-size:16px;font-weight:700;margin:24px 0 8px;color:var(--ink)}
+.doc p{margin:12px 0;color:var(--ink)} .doc strong{font-weight:700;color:var(--ink)}
+.doc ul,.doc ol{margin:12px 0;padding-left:22px} .doc li{margin:7px 0}
+.doc blockquote{margin:16px 0;padding:12px 16px;background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;color:var(--muted);font-size:14.5px}
+.doc blockquote p{margin:4px 0}
+.doc hr{border:0;border-top:1px solid var(--hair);margin:32px 0}
+.doc em{color:var(--muted);font-style:normal}
+.doc > p:first-of-type,.doc > p:nth-of-type(2){color:var(--muted);font-size:13.5px;margin:2px 0}
+
+/* 官网首页:仿 App 首页 Banner(黑底 + 紫微光 + 底部发光 + 星点 + 紫月球) */
+body.home-page{ --ink:#F4F0FB; --muted:rgba(240,236,250,.55); --hair:rgba(255,255,255,.14); --card:#191521; --accent:#C6A8FF;
+  color:#fff; background:#050409;
+  background-image:radial-gradient(640px 500px at 50% 20%, rgba(139,91,214,.24), transparent 62%), radial-gradient(1000px 360px at 50% 118%, rgba(139,91,214,.42), transparent 72%);
+  background-attachment:fixed; }
+body.home-page::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(1.3px 1.3px at 12% 22%, rgba(255,255,255,.55), transparent),
+    radial-gradient(1px 1px at 82% 16%, rgba(255,255,255,.42), transparent),
+    radial-gradient(1px 1px at 67% 33%, rgba(255,255,255,.36), transparent),
+    radial-gradient(1.4px 1.4px at 25% 60%, rgba(255,255,255,.32), transparent),
+    radial-gradient(1px 1px at 90% 56%, rgba(255,255,255,.36), transparent),
+    radial-gradient(1px 1px at 41% 12%, rgba(255,255,255,.3), transparent),
+    radial-gradient(1px 1px at 57% 74%, rgba(255,255,255,.28), transparent),
+    radial-gradient(1.2px 1.2px at 8% 46%, rgba(255,255,255,.32), transparent),
+    radial-gradient(1px 1px at 74% 82%, rgba(255,255,255,.26), transparent);}
+body.home-page .appstore{background:#fff;color:#141018}
+.lp{position:relative;z-index:1;min-height:100dvh;display:flex;flex-direction:column;max-width:600px;margin:0 auto;padding:0 30px}
+/* 右上角语言下拉(details/summary,免 JS 展开) */
+.langsw{position:fixed;top:14px;right:16px;z-index:20}
+.langsw summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+  padding:7px 12px;border-radius:999px;font-size:13px;color:var(--ink);
+  background:rgba(255,255,255,.07);border:1px solid var(--hair);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.langsw summary::-webkit-details-marker{display:none} .langsw summary::marker{content:""}
+.langsw .globe{width:15px;height:15px;opacity:.85} .langsw .cur{opacity:.95}
+.langsw .chev{width:11px;height:11px;opacity:.6;transition:transform .2s}
+.langsw[open] .chev{transform:rotate(180deg)}
+.langmenu{position:absolute;top:calc(100% + 8px);right:0;min-width:134px;
+  background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:6px;
+  box-shadow:0 18px 44px rgba(0,0,0,.35);display:flex;flex-direction:column}
+.langmenu a{padding:9px 12px;border-radius:9px;color:var(--muted);font-size:13.5px}
+.langmenu a:hover{background:rgba(255,255,255,.08);color:var(--ink);text-decoration:none}
+.langmenu a.on{color:var(--ink);font-weight:600}
+.lp-hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:36px 0 44px}
+.orb{width:min(300px,74vw);height:min(320px,78vw);display:block;margin:0 auto 4px;pointer-events:none}
+.lp-title{font-family:var(--serif);font-size:27px;font-weight:600;line-height:1.4;letter-spacing:.02em;margin:6px 0 0;color:var(--ink);transition:opacity .38s ease;min-height:2.6em;display:flex;align-items:center;max-width:520px}
+.lp-cta{margin:34px 0 0}
+.lp-foot{text-align:center;padding:22px 24px 34px;color:var(--muted);font-size:13px}
+.lp-foot .lp-ent{margin:0 auto 14px;font-size:11.5px;line-height:1.85;letter-spacing:.01em;opacity:.5;max-width:440px}
+.lp-foot .foot-nav{margin-bottom:10px} .lp-foot a{color:var(--muted)} .lp-foot .sep{margin:0 12px;opacity:.4}
+.lp-foot .cr{opacity:.6;font-size:12px;letter-spacing:.02em}
+
+/* App Store 按钮 */
+.appstore{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--bg);padding:11px 20px 11px 16px;border-radius:14px;text-decoration:none}
+.appstore:hover{text-decoration:none;opacity:.9} .appstore svg{flex:none}
+.as-txt{display:flex;flex-direction:column;line-height:1.12;text-align:left}
+.as-txt small{font-size:10px;opacity:.9;font-weight:400} .as-txt b{font-size:17px;font-weight:600;letter-spacing:.2px}
+/* hover 二维码浮窗(构建期内联 SVG) */
+.dl{position:relative;display:inline-block}
+.qrpop{position:absolute;bottom:calc(100% + 12px);left:50%;z-index:5;transform:translateX(-50%) translateY(6px) scale(.96);transform-origin:bottom center;
+  background:var(--card);border:1px solid var(--hair);border-radius:16px;padding:12px;box-shadow:0 16px 44px rgba(40,28,72,.18);
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease, transform .2s ease, visibility .2s}
+.dl:hover .qrpop, .dl:focus-within .qrpop{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0) scale(1)}
+.qrpop::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:7px solid transparent;border-top-color:var(--card)}
+.qr{width:132px;height:132px;background:#fff;border-radius:9px;padding:9px;box-sizing:border-box} .qr svg{display:block;width:100%;height:100%}
+@media (hover:none){ .qrpop{display:none} }</style>
+</head>
+<body class="doc-page">
+<main class="wrap"><article class="doc"><h1>Ziyue Tarot · Terms of Service</h1>
+<p><strong>Effective Date: July 4, 2026</strong>
+<strong>Last Updated: July 4, 2026</strong></p>
+<p>Welcome to &quot;Ziyue Tarot&quot; (the &quot;App&quot; or the &quot;Service&quot;). These Terms of Service (the &quot;Terms&quot;) constitute an agreement between you and the developer of the App (the &quot;we,&quot; &quot;us,&quot; or the &quot;Developer&quot;) governing your use of the App.</p>
+<p>Please read and fully understand these Terms carefully before using the App, and pay particular attention to the provisions highlighted in <strong>bold</strong>. <strong>By downloading, installing, launching, or using the App, you acknowledge that you have read, understood, and agreed to be bound by these Terms in their entirety. If you do not agree to any part of these Terms, please stop using the App and uninstall it immediately.</strong></p>
+<p>If you have not reached the age of full civil capacity as prescribed by the laws of your country or region, please read these Terms together with your parent or guardian, and use the App only with their consent.</p>
+<hr>
+<h2>1. Scope of Services</h2>
+<p>1.1 The App is an artificial intelligence (AI)-based tarot entertainment application. Its principal features include, but are not limited to:</p>
+<ul>
+<li><strong>AI Tarot Readings</strong>: After you enter a question or select a reading scenario, the App draws tarot cards and, with the assistance of artificial intelligence, generates interpretive text;</li>
+<li><strong>Daily Fortune</strong>: Daily entertainment content presented in the form of tarot cards;</li>
+<li><strong>Voice Interaction</strong>: Support for entering reading questions by voice, as well as reading interpretations aloud;</li>
+<li><strong>Reading History</strong>: Local storage of your past reading records for your review;</li>
+<li><strong>Card Gallery and Card Meaning Reference</strong>, and other auxiliary features.</li>
+</ul>
+<p>1.2 We reserve the right to add, modify, suspend, or discontinue some or all features at any time as our operational needs require, and will notify you through reasonable means such as in-app notices and release notes.</p>
+<hr>
+<h2>2. Entertainment-Only Statement and Disclaimer (Important — Please Read Carefully)</h2>
+<p><strong>This section constitutes a core provision of these Terms. By using the App, you represent that you have fully read, understood, and accepted the entirety of this section.</strong></p>
+<h3>2.1 For Entertainment Purposes Only</h3>
+<p>All tarot readings, card draws, daily fortunes, card meanings, interpretive text, voice narration, and other related content provided by the App (collectively, the &quot;Reading Content&quot;) are <strong>provided solely for purposes of entertainment, leisure, amusement, self-exploration, and self-reflection.</strong> The Reading Content is a form of tarot-themed entertainment experience and <strong>does not represent any objective fact, scientific conclusion, prediction, or judgment about the future.</strong></p>
+<h3>2.2 No Scientific or Supernatural Efficacy</h3>
+<p>You understand and acknowledge that:</p>
+<ul>
+<li>Tarot card draws are generated at random, and interpretations are produced by computer programs and artificial intelligence models;</li>
+<li><strong>The Reading Content does not possess, and the App has never claimed that it possesses, any power to predict the future, reveal destiny, alter fortune, or influence reality;</strong></li>
+<li>The Reading Content <strong>is not</strong>, and <strong>shall not be construed as</strong>, a scientific, medical, divinatory, or any other form of factual statement;</li>
+<li>Whether the Reading Content proves &quot;accurate&quot; is purely a matter of coincidence, and <strong>the App makes no warranty as to its truthfulness, accuracy, or reliability.</strong></li>
+</ul>
+<h3>2.3 Not Professional Advice</h3>
+<p><strong>The Reading Content does not constitute, and shall not be regarded as, professional opinion, diagnosis, assessment, or advice in any field</strong>, including but not limited to any of the following:</p>
+<ul>
+<li><strong>Medical and Health</strong>: diagnosis, treatment, medication, or recovery of any illness;</li>
+<li><strong>Mental and Psychological</strong>: psychological counseling, psychiatric diagnosis, psychotherapy, emotional crisis intervention, and the like;</li>
+<li><strong>Legal</strong>: legal opinions, litigation, contracts, rights protection, and the like;</li>
+<li><strong>Financial and Investment</strong>: personal finance, investment, securities, crypto assets, lending, taxation, and the like;</li>
+<li><strong>Relationships and Interpersonal</strong>: decisions regarding marriage, romance, family, parenting, or social relationships;</li>
+<li><strong>Career and Education</strong>: major arrangements such as job seeking, career choices, further education, entrepreneurship, or business operations;</li>
+<li><strong>Personal and Property Safety</strong>: any matter involving the life, health, safety, or significant property of you or others.</li>
+</ul>
+<p><strong>For any of the foregoing matters, you must consult a qualified, licensed professional in the relevant field and rely on their opinion.</strong></p>
+<h3>2.4 No Substitute for Professional Help; Do Not Delay Seeking Help</h3>
+<p><strong>You must not make, refuse, delay, or alter any course of action for which professional help should be sought on the basis of any Reading Content.</strong></p>
+<ul>
+<li>If you experience any physical or mental discomfort, symptoms, or distress, please seek medical attention or consult a professional promptly. <strong>Do not self-diagnose, self-treat, or delay seeking medical care based on the Reading Content;</strong></li>
+<li><strong>If you are experiencing an emotional crisis or severe psychological distress, or have thoughts of harming yourself or others, please immediately contact your local emergency helpline, a professional mental health support organization, or someone you trust for help. The App is not a crisis intervention or mental health support tool and cannot, and will not, provide such assistance.</strong></li>
+</ul>
+<h3>2.5 Use Rationally; Do Not Over-Rely</h3>
+<ul>
+<li>The Reading Content is provided for reference and amusement only. <strong>Always exercise independent, rational judgment, and do not become addicted or develop psychological dependence;</strong></li>
+<li>Characters such as &quot;Ziyue&quot; within the App are <strong>AI-generated virtual personas and are not real tarot readers, diviners, counselors, or any real persons.</strong> Their &quot;responses&quot; do not represent the opinion or commitment of any real person;</li>
+<li>Do not use the Reading Content to judge, manipulate, or intimidate others, or as a basis for making promises or predictions to others.</li>
+</ul>
+<h3>2.6 You Are Solely Responsible for All Decisions</h3>
+<p><strong>You are responsible for all of your own decisions and conduct.</strong></p>
+<ul>
+<li><strong>The Reading Content should not serve as a basis for any of your decisions, and certainly not as the sole basis;</strong></li>
+<li>You bear full and sole responsibility for any decision or action you take or fail to take based on, with reference to, or in reliance on the Reading Content, and for all consequences thereof;</li>
+<li>To the maximum extent permitted by law, <strong>the Developer shall not be liable for any loss, damage, or adverse consequence caused or alleged to be caused by your use of the Reading Content.</strong> Specific limitations of liability are set forth in Section 13 of these Terms.</li>
+</ul>
+<h3>2.7 Inherent Limitations of AI-Generated Content</h3>
+<p>The Reading Content is generated by artificial intelligence models and is therefore <strong>probabilistic and uncertain in nature. It may contain errors, fabrications, inconsistencies, or expressions that are offensive or inappropriate</strong>, and does not represent the position of the Developer. Further details are set forth in Section 9 of these Terms.</p>
+<hr>
+<h2>3. Eligibility and Age Requirements</h2>
+<p>3.1 You must possess the civil capacity appropriate to your use of the App.</p>
+<p>3.2 <strong>The App is intended for users with a certain capacity for discernment. If you are a minor, you must use the App with the consent and guidance of a parent or guardian; the guardian shall bear responsibility for supervising and managing the minor's use of the App and any payment activity.</strong></p>
+<p>3.3 You represent that your use of the App does not violate the laws and regulations of your country or region.</p>
+<hr>
+<h2>4. Accounts and Devices</h2>
+<p>4.1 The App does not require a separate registered account. You use the Service on a device-local basis; certain features (such as cross-device synchronization) rely on your Apple account and iCloud service.</p>
+<p>4.2 You should safeguard your device and Apple account properly. You bear sole responsibility for any loss arising from your own failure to safeguard them, loss of the device, use by others, or the like.</p>
+<hr>
+<h2>5. Paid Services, Subscriptions, and Virtual Items</h2>
+<p>5.1 <strong>Membership Subscription (Plus)</strong>
+The App offers an auto-renewing membership subscription service. The membership benefits, price, and subscription period are as displayed within the App and on the App Store page at the time of your purchase.</p>
+<ul>
+<li><strong>Payment</strong>: The subscription fee will be charged to your Apple account when you confirm the purchase.</li>
+<li><strong>Auto-Renewal</strong>: <strong>The subscription will renew automatically. Unless you turn off auto-renewal at least 24 hours before the end of the current subscription period, the system will automatically charge you for the next period at the then-current price within 24 hours before the end of the current period.</strong></li>
+<li><strong>Management and Cancellation</strong>: You may manage or cancel your subscription at any time under &quot;Settings → Apple Account → Subscriptions&quot; on your device. Cancellation takes effect at the end of the current paid period; the current period already begun is generally non-refundable.</li>
+<li>Where an introductory (promotional) price is offered, its applicable conditions, duration, and the renewal price after expiry are as displayed within the App.</li>
+</ul>
+<p>5.2 <strong>Reading Passes (Consumable)</strong>
+Reading passes are one-time consumable virtual items used to offset the cost of readings and similar activities. Once a pass is purchased and credited to your balance, delivery is deemed complete. <strong>Virtual items may not be redeemed for cash, are non-transferable, and are not refundable beyond any stated validity period, except as required by mandatory provisions of law or as otherwise provided in these Terms.</strong></p>
+<p>5.3 <strong>Prices and Currency</strong>
+All prices are as displayed in the local currency of your regional App Store and may vary due to region, exchange rates, taxes and fees, and promotions. We reserve the right to adjust prices; any adjustment does not affect purchases you have already completed.</p>
+<p>5.4 <strong>Refunds</strong>
+All payments in the App are processed through the Apple App Store. <strong>Refunds are governed by Apple's refund policy and handled by Apple; we cannot directly process refunds for App Store transactions on your behalf.</strong> You may request a refund through Apple's applicable channels. The foregoing does not affect any statutory consumer rights you may have under the laws of your jurisdiction.</p>
+<hr>
+<h2>6. Invitations and Rewards</h2>
+<p>6.1 The App may offer reward activities such as earning reading passes by inviting friends. The specific rules, quantities, and conditions for granting rewards are as displayed on the relevant activity page.</p>
+<p>6.2 <strong>You must not obtain rewards through any improper means, including but not limited to fake invitations, bulk registration by bots, farming across multiple devices, or exploiting program vulnerabilities.</strong> Upon discovery, we reserve the right to cancel the corresponding rewards, reclaim any items already granted, and, depending on the severity, suspend or terminate your use of the relevant features.</p>
+<hr>
+<h2>7. User Conduct</h2>
+<p>7.1 You undertake to use the App lawfully and properly, and not to use the App to engage in any illegal or non-compliant conduct or any act that infringes the lawful rights and interests of others, including but not limited to:</p>
+<ul>
+<li>Entering or disseminating content that is illegal, violent, pornographic, hateful, harassing, false, or infringing on the rights of others;</li>
+<li>Reverse engineering, decompiling, cracking, scraping, bulk harvesting, or otherwise gaining unauthorized access to the App;</li>
+<li>Interfering with or disrupting the normal operation of the Service, servers, or networks, or circumventing or defeating any security or billing mechanism;</li>
+<li>Impersonating others, or using the App for purposes of misleading or defrauding others;</li>
+<li>Using the App's readings or interpretive content to intimidate, psychologically manipulate, or make improper promises to others.</li>
+</ul>
+<p>7.2 You are fully responsible for the content you enter through the App (such as reading questions) and warrant that it does not infringe any third-party rights and does not violate any laws or regulations.</p>
+<hr>
+<h2>8. User-Submitted Content and Authorization</h2>
+<p>8.1 &quot;User-Submitted Content&quot; refers to information you actively provide in the course of using the App, such as reading question text and voice input.</p>
+<p>8.2 In order to provide the Service to you (such as generating interpretations, speech recognition, and narration), you authorize us and the third-party services necessary to deliver the corresponding features to process the User-Submitted Content. The rules for processing the relevant personal information are set forth in the Privacy Policy.</p>
+<p>8.3 You warrant that you hold lawful rights to the content you submit. You agree that we may, on a <strong>de-identified</strong> basis, use the relevant data to improve our models and service quality, as further described in the Privacy Policy.</p>
+<hr>
+<h2>9. Statement on AI-Generated Content</h2>
+<p>9.1 Interpretations and similar content in the App are generated by artificial intelligence models. <strong>AI-generated content is probabilistic and uncertain in nature. It may contain errors, fabrications, inconsistencies, or content that does not meet your expectations, and does not represent the Developer's position or any factual statement.</strong></p>
+<p>9.2 You should exercise your own judgment and use AI-generated content with caution. Do not use it in any scenario that requires accuracy, professionalism, or authority.</p>
+<p>9.3 To the extent permitted by law, we make no express or implied warranty as to the accuracy, suitability, or completeness of AI-generated content.</p>
+<hr>
+<h2>10. Intellectual Property</h2>
+<p>10.1 The App and its constituent interface design, card artwork, icons, copy, program code, trademarks, and marks (including names and images such as &quot;Ziyue&quot;), together with other content, are the intellectual property of the Developer or the respective rights holders, and are protected by law.</p>
+<p>10.2 Without our prior written permission, you must not copy, modify, distribute, sell, rent, sublicense, or otherwise commercially exploit the foregoing content.</p>
+<p>10.3 We grant you a limited, revocable, non-exclusive, and non-transferable license to use the App normally, solely for your personal, non-commercial purposes and in accordance with these Terms.</p>
+<hr>
+<h2>11. Third-Party Services</h2>
+<p>11.1 Certain features of the App are delivered through third-party services, including but not limited to: the App Store in-app purchase and iCloud services provided by Apple, as well as the artificial intelligence service providers used to generate interpretations, perform speech recognition, and synthesize speech.</p>
+<p>11.2 The foregoing third-party services are governed by their respective terms of service and privacy policies. <strong>To the extent permitted by law, we are not liable for any impact arising from causes attributable to the third-party services themselves (such as interruptions, malfunctions, or policy changes).</strong></p>
+<hr>
+<h2>12. Modification, Interruption, and Termination of the Service</h2>
+<p>12.1 We may temporarily or permanently modify, interrupt, or terminate all or part of the Service for reasons such as system maintenance, upgrades, malfunctions, force majeure, or adjustments to business strategy.</p>
+<p>12.2 If you breach these Terms, we reserve the right, depending on the severity, to take measures such as restricting features, or suspending or terminating the provision of the Service to you.</p>
+<p>12.3 Termination of the Service does not affect the rights and obligations that arose before termination; consumable virtual items are generally non-refundable, except as required by mandatory provisions of law.</p>
+<hr>
+<h2>13. Disclaimers and Limitation of Liability</h2>
+<p>13.1 <strong>The App is provided on an &quot;as is&quot; and &quot;as available&quot; basis. To the maximum extent permitted by law, we make no express or implied warranty as to the merchantability, fitness for a particular purpose, uninterrupted operation, timeliness, error-free performance, security, or accuracy of results of the Service.</strong></p>
+<p>13.2 <strong>To the maximum extent permitted by law, we are not liable for any of the following:</strong></p>
+<ul>
+<li>Any decision or action you take or fail to take <strong>in reliance on, with reference to, or through use of the Reading Content</strong>, and all consequences arising therefrom (see Section 2);</li>
+<li>Any error, inaccuracy, omission, offensiveness, or inappropriateness in the Reading Content or AI-generated content;</li>
+<li>Any consequence arising from your delaying, refusing, or altering the seeking of professional help, whether medical, psychological, legal, financial, or otherwise;</li>
+<li>Interruption, delay, or malfunction of the Service, or loss of or damage to data;</li>
+<li>Problems caused by your device, network, Apple account, or third-party services;</li>
+<li>Failure or delay in performance caused by <strong>force majeure</strong> (such as natural disasters, government acts, network outages, power failures, or the discontinuation of third-party services).</li>
+</ul>
+<p>13.3 <strong>To the maximum extent permitted by law, we are not liable for any indirect, incidental, special, punitive, or consequential loss (including but not limited to loss of profit, loss of data, loss of goodwill, or emotional distress) arising from the use of or inability to use the App, even if we have been advised of the possibility of such loss.</strong></p>
+<p>13.4 <strong>To the maximum extent permitted by law, our total aggregate liability to you under these Terms and in respect of the Service shall be limited to the amount you actually paid us (through Apple) for the App during the 6 months preceding the event giving rise to the liability; if you have never made a payment, our aggregate liability shall be limited to the minimum amount permitted by applicable law.</strong></p>
+<p>13.5 This section does not exclude or limit any liability that cannot be excluded or limited under the mandatory laws of your jurisdiction (for example, non-excludable statutory consumer rights, or personal injury or death caused by our intentional misconduct or gross negligence). If any disclaimer or limitation is held to be invalid, the remaining provisions shall continue in effect to the extent permitted by law.</p>
+<hr>
+<h2>14. Governing Law and Dispute Resolution</h2>
+<p>14.1 The formation, validity, interpretation, and performance of these Terms, and the resolution of disputes arising therefrom, are governed by the laws of the place where the Developer principally operates; <strong>at the same time, mandatory consumer rights that you enjoy under the laws of your country or region and that cannot be excluded by agreement remain unaffected.</strong></p>
+<p>14.2 Disputes arising from these Terms shall first be resolved through amicable negotiation between the parties; if negotiation fails, they may be submitted in accordance with law to a body having jurisdiction.</p>
+<hr>
+<h2>15. Changes to These Terms</h2>
+<p>15.1 We may revise these Terms from time to time. The revised Terms will be published by means such as in-app notices and updating the effective date.</p>
+<p>15.2 <strong>If you continue to use the App after these Terms are changed, you are deemed to have accepted the revised Terms; if you do not agree, you should stop using the App.</strong></p>
+<hr>
+<h2>16. Contact Us</h2>
+<p>If you have any questions, comments, or complaints regarding these Terms, you may contact us via the in-app &quot;Profile → Feedback.&quot;</p>
+<hr>
+<p><em>These Terms should be read together with the Privacy Policy. Together they constitute the entire agreement between you and us regarding the App.</em></p>
+</article></main>
+</body>
+</html>

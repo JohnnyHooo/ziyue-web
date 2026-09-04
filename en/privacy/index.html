@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy Policy · Ziyue Tarot</title>
+<meta name="description" content="Ziyue Tarot Privacy Policy">
+<meta name="robots" content="index,follow">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<style>
+:root{
+  --bg:#FAFAF8; --card:#FFFFFF; --ink:#231F2A; --muted:#6E687A; --hair:#ECE8E2;
+  --accent:#6E52A6; --accent-soft:#F1EDF7; --maxw:720px;
+  --serif:"Songti SC","Noto Serif SC","SimSun",ui-serif,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans","Apple SD Gothic Neo","Microsoft YaHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0F0E15; --card:#17161F; --ink:#ECEAF2; --muted:#938DA6; --hair:#26232F; --accent:#B9A7EC; --accent-soft:#1D1B27; }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.8;font-size:16px;
+  -webkit-font-smoothing:antialiased;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+/* 法务文档正文(纯单页) */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:20px 24px 72px}
+.doc h1{font-family:var(--serif);font-size:27px;line-height:1.35;font-weight:700;margin:8px 0 2px}
+.doc h2{font-family:var(--serif);font-size:20px;font-weight:700;margin:38px 0 12px;padding-left:12px;border-left:3px solid var(--accent)}
+.doc h3{font-size:16px;font-weight:700;margin:24px 0 8px;color:var(--ink)}
+.doc p{margin:12px 0;color:var(--ink)} .doc strong{font-weight:700;color:var(--ink)}
+.doc ul,.doc ol{margin:12px 0;padding-left:22px} .doc li{margin:7px 0}
+.doc blockquote{margin:16px 0;padding:12px 16px;background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;color:var(--muted);font-size:14.5px}
+.doc blockquote p{margin:4px 0}
+.doc hr{border:0;border-top:1px solid var(--hair);margin:32px 0}
+.doc em{color:var(--muted);font-style:normal}
+.doc > p:first-of-type,.doc > p:nth-of-type(2){color:var(--muted);font-size:13.5px;margin:2px 0}
+
+/* 官网首页:仿 App 首页 Banner(黑底 + 紫微光 + 底部发光 + 星点 + 紫月球) */
+body.home-page{ --ink:#F4F0FB; --muted:rgba(240,236,250,.55); --hair:rgba(255,255,255,.14); --card:#191521; --accent:#C6A8FF;
+  color:#fff; background:#050409;
+  background-image:radial-gradient(640px 500px at 50% 20%, rgba(139,91,214,.24), transparent 62%), radial-gradient(1000px 360px at 50% 118%, rgba(139,91,214,.42), transparent 72%);
+  background-attachment:fixed; }
+body.home-page::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(1.3px 1.3px at 12% 22%, rgba(255,255,255,.55), transparent),
+    radial-gradient(1px 1px at 82% 16%, rgba(255,255,255,.42), transparent),
+    radial-gradient(1px 1px at 67% 33%, rgba(255,255,255,.36), transparent),
+    radial-gradient(1.4px 1.4px at 25% 60%, rgba(255,255,255,.32), transparent),
+    radial-gradient(1px 1px at 90% 56%, rgba(255,255,255,.36), transparent),
+    radial-gradient(1px 1px at 41% 12%, rgba(255,255,255,.3), transparent),
+    radial-gradient(1px 1px at 57% 74%, rgba(255,255,255,.28), transparent),
+    radial-gradient(1.2px 1.2px at 8% 46%, rgba(255,255,255,.32), transparent),
+    radial-gradient(1px 1px at 74% 82%, rgba(255,255,255,.26), transparent);}
+body.home-page .appstore{background:#fff;color:#141018}
+.lp{position:relative;z-index:1;min-height:100dvh;display:flex;flex-direction:column;max-width:600px;margin:0 auto;padding:0 30px}
+/* 右上角语言下拉(details/summary,免 JS 展开) */
+.langsw{position:fixed;top:14px;right:16px;z-index:20}
+.langsw summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+  padding:7px 12px;border-radius:999px;font-size:13px;color:var(--ink);
+  background:rgba(255,255,255,.07);border:1px solid var(--hair);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.langsw summary::-webkit-details-marker{display:none} .langsw summary::marker{content:""}
+.langsw .globe{width:15px;height:15px;opacity:.85} .langsw .cur{opacity:.95}
+.langsw .chev{width:11px;height:11px;opacity:.6;transition:transform .2s}
+.langsw[open] .chev{transform:rotate(180deg)}
+.langmenu{position:absolute;top:calc(100% + 8px);right:0;min-width:134px;
+  background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:6px;
+  box-shadow:0 18px 44px rgba(0,0,0,.35);display:flex;flex-direction:column}
+.langmenu a{padding:9px 12px;border-radius:9px;color:var(--muted);font-size:13.5px}
+.langmenu a:hover{background:rgba(255,255,255,.08);color:var(--ink);text-decoration:none}
+.langmenu a.on{color:var(--ink);font-weight:600}
+.lp-hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:36px 0 44px}
+.orb{width:min(300px,74vw);height:min(320px,78vw);display:block;margin:0 auto 4px;pointer-events:none}
+.lp-title{font-family:var(--serif);font-size:27px;font-weight:600;line-height:1.4;letter-spacing:.02em;margin:6px 0 0;color:var(--ink);transition:opacity .38s ease;min-height:2.6em;display:flex;align-items:center;max-width:520px}
+.lp-cta{margin:34px 0 0}
+.lp-foot{text-align:center;padding:22px 24px 34px;color:var(--muted);font-size:13px}
+.lp-foot .lp-ent{margin:0 auto 14px;font-size:11.5px;line-height:1.85;letter-spacing:.01em;opacity:.5;max-width:440px}
+.lp-foot .foot-nav{margin-bottom:10px} .lp-foot a{color:var(--muted)} .lp-foot .sep{margin:0 12px;opacity:.4}
+.lp-foot .cr{opacity:.6;font-size:12px;letter-spacing:.02em}
+
+/* App Store 按钮 */
+.appstore{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--bg);padding:11px 20px 11px 16px;border-radius:14px;text-decoration:none}
+.appstore:hover{text-decoration:none;opacity:.9} .appstore svg{flex:none}
+.as-txt{display:flex;flex-direction:column;line-height:1.12;text-align:left}
+.as-txt small{font-size:10px;opacity:.9;font-weight:400} .as-txt b{font-size:17px;font-weight:600;letter-spacing:.2px}
+/* hover 二维码浮窗(构建期内联 SVG) */
+.dl{position:relative;display:inline-block}
+.qrpop{position:absolute;bottom:calc(100% + 12px);left:50%;z-index:5;transform:translateX(-50%) translateY(6px) scale(.96);transform-origin:bottom center;
+  background:var(--card);border:1px solid var(--hair);border-radius:16px;padding:12px;box-shadow:0 16px 44px rgba(40,28,72,.18);
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease, transform .2s ease, visibility .2s}
+.dl:hover .qrpop, .dl:focus-within .qrpop{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0) scale(1)}
+.qrpop::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:7px solid transparent;border-top-color:var(--card)}
+.qr{width:132px;height:132px;background:#fff;border-radius:9px;padding:9px;box-sizing:border-box} .qr svg{display:block;width:100%;height:100%}
+@media (hover:none){ .qrpop{display:none} }</style>
+</head>
+<body class="doc-page">
+<main class="wrap"><article class="doc"><h1>Ziyue Tarot · Privacy Policy</h1>
+<p><strong>Effective Date: July 4, 2026</strong>
+<strong>Last Updated: July 4, 2026</strong></p>
+<p>This Privacy Policy explains how the developer (the &quot;we&quot; or &quot;us&quot;) of &quot;Ziyue Tarot&quot; (the &quot;App&quot;) collects, uses, stores, shares, and protects your information, as well as the rights you have with respect to your personal information.</p>
+<p><strong>We take your privacy very seriously. Please read this Policy carefully before using the App.</strong> By using the App, you acknowledge that you understand and agree to the information-processing practices described in this Policy. If you do not agree, please stop using the App.</p>
+<p>This Policy should be read together with the Terms of Service.</p>
+<hr>
+<h2>1. Our Core Principles</h2>
+<ul>
+<li><strong>Data Minimization</strong>: We collect only the information necessary to provide features to you.</li>
+<li><strong>No Advertising Tracking</strong>: The App <strong>does not use advertising identifiers (IDFA/IDFV)</strong>, <strong>does not integrate any third-party advertising, analytics, or crash-reporting SDK</strong>, and does not perform cross-app tracking.</li>
+<li><strong>No Sale of Data</strong>: We <strong>do not sell</strong> your personal information.</li>
+<li><strong>Local-First</strong>: Your reading records are stored locally on your device by default.</li>
+</ul>
+<hr>
+<h2>2. Information We Collect</h2>
+<p>We collect the following information only when you use the corresponding features:</p>
+<h3>2.1 Information You Actively Provide</h3>
+<ul>
+<li><strong>Reading Questions and Conversation Content</strong>: The reading question text you enter and the follow-up conversation content. Used to generate interpretations.</li>
+<li><strong>Voice Audio</strong>: When you use voice input, a segment of your recording (audio) is captured and used to transcribe it into text.</li>
+<li><strong>Feedback Information</strong>: When you submit feedback, the feedback content you fill in, <strong>contact information you may voluntarily provide</strong> (such as an email address), and any images you optionally attach.</li>
+</ul>
+<h3>2.2 Reading and Usage Information</h3>
+<ul>
+<li><strong>Card Draw and Interpretation Data</strong>: The cards drawn in each reading (position, card name, upright/reversed, etc.), the reading scenario selected, the interpretive text generated, and your thumbs-up/thumbs-down rating of the interpretation.</li>
+</ul>
+<h3>2.3 Device and Technical Information</h3>
+<ul>
+<li><strong>Device Identifier</strong>: The App generates a <strong>random in-app identifier (UUID)</strong> on your device, used for feedback attribution, anti-fraud for invitation rewards, and similar purposes. <strong>This identifier is generated by the App itself; it is not an Apple advertising identifier (IDFA/IDFV) and cannot be used for cross-app tracking.</strong></li>
+<li><strong>Basic Device Information</strong>: When you submit feedback, participate in invitations, and the like, the following may be attached to the request: device model, operating system version, app version, and language and region settings.</li>
+</ul>
+<h3>2.4 Transaction Information</h3>
+<ul>
+<li>When you make an in-app purchase or subscribe, the transaction is completed through the Apple App Store. We receive the <strong>transaction receipt</strong> provided by Apple to validate the granting of benefits. <strong>We do not collect, and cannot obtain, your complete payment information such as your bank card number</strong>—payment is handled by Apple.</li>
+</ul>
+<h3>2.5 Information We Do Not Collect</h3>
+<p>We <strong>do not collect</strong>: your precise geolocation, contacts, photo library images (other than images you actively attach to feedback), calendar, or health data, and we <strong>do not obtain advertising identifiers</strong>.</p>
+<hr>
+<h2>3. How We Use Information</h2>
+<p>We use the information we collect for the following purposes:</p>
+<ol>
+<li><strong>Providing Core Features</strong>: Generating tarot interpretations based on your questions and card draws; performing speech transcription and narration; recommending spreads and assessing question completeness.</li>
+<li><strong>Saving and Syncing Records</strong>: Storing your reading records locally; syncing records through your iCloud when you enable the corresponding feature (see Section 5).</li>
+<li><strong>Granting and Validating Benefits</strong>: Validating in-app purchase transactions, granting membership benefits and reading passes, and processing invitation and redemption rewards while preventing cheating.</li>
+<li><strong>Handling Feedback and Providing Support</strong>: Responding to your feedback and questions.</li>
+<li><strong>Improving the Service</strong>: Analyzing and improving interpretation quality, stability, and experience on a <strong>de-identified</strong> basis.</li>
+<li><strong>Security and Compliance</strong>: Guarding against abuse and fraud, safeguarding the security of the Service, and fulfilling legal obligations.</li>
+</ol>
+<h3>Legal Bases for Processing (For Users in the EEA, UK, and Similar Jurisdictions)</h3>
+<ul>
+<li><strong>Necessary for Performance of a Contract</strong>: To provide the features you request (such as reading interpretations, voice, and in-app purchases).</li>
+<li><strong>Your Consent</strong>: For processing such as voice audio and optional contact information; you may withdraw your consent at any time.</li>
+<li><strong>Our Legitimate Interests</strong>: Such as preventing cheating, safeguarding security, and improving the Service on a de-identified basis, where these interests are not overridden by your rights.</li>
+<li><strong>Compliance with Legal Obligations</strong>: Where required by applicable law.</li>
+</ul>
+<hr>
+<h2>4. How Information Is Shared and Processed by Third Parties</h2>
+<p>To deliver the corresponding features, some of your information is transmitted to the following service providers for processing. <strong>These service providers process the data only according to our instructions and for the purpose of delivering the corresponding features, and may not use it for their own purposes.</strong></p>
+<h3>4.1 Our Servers</h3>
+<p>Requests for readings, voice, feedback, and the like are sent to servers we operate for processing and forwarding. Specifically:</p>
+<ul>
+<li><strong>Generating Interpretations</strong>: Your <strong>reading questions, card draw data, follow-up conversation, and language settings</strong> are sent to our servers, which forward them to the <strong>large language model (AI) service provider</strong> to generate interpretive text.</li>
+<li><strong>Speech Recognition</strong>: Your <strong>recorded audio</strong> is sent to our servers, which use a <strong>speech recognition service</strong> to transcribe it into text.</li>
+<li><strong>Speech Synthesis (Narration)</strong>: The <strong>interpretive text</strong> to be read aloud is sent to our servers, which use a <strong>speech synthesis service</strong> to generate audio.</li>
+<li><strong>Feedback and Invitations</strong>: The <strong>feedback content, optional contact information, device information, and in-app identifier</strong> you submit are sent to our servers.</li>
+</ul>
+<p>We use a <strong>server-side proxy</strong> approach for AI-related services: the keys for the relevant third-party models are stored only on our servers. <strong>The App does not send your data directly to these third parties, nor does it access their keys within the App.</strong></p>
+<h3>4.2 Apple</h3>
+<ul>
+<li><strong>In-App Purchases and Subscriptions</strong>: Transactions are processed and validated by the Apple App Store.</li>
+<li><strong>iCloud</strong>: If you enable syncing, the relevant data is stored in <strong>your own iCloud</strong> (see Section 5).</li>
+<li><strong>Speech Recognition (System Capability)</strong>: In certain scenarios, the App uses the speech recognition capability provided by the Apple system. <strong>On newer system versions, speech recognition may be performed locally on your device; on some older system versions, Apple's speech recognition may need to send the audio to Apple for processing.</strong> Such processing is subject to Apple's privacy policy.</li>
+</ul>
+<h3>4.3 We Will Not</h3>
+<ul>
+<li><strong>Sell</strong> your personal information to any third party;</li>
+<li>Use your personal information for third-party advertising;</li>
+<li>Share your personal information with any other third party, except as described in this Policy, with your consent, or as required by law.</li>
+</ul>
+<hr>
+<h2>5. Local Storage and iCloud Sync</h2>
+<ul>
+<li><strong>Local Storage</strong>: Your reading records, daily fortunes, and app settings are stored locally on your <strong>device</strong> by default. Asset information such as your reading-pass balance is stored in your device's <strong>Keychain</strong>.</li>
+<li><strong>iCloud Sync (Membership Feature)</strong>: When you are a member and <strong>actively enable the sync toggle</strong>, the App synchronizes your reading records and daily fortunes across your multiple devices through <strong>iCloud (key-value storage)</strong>. Your reading-pass balance is shared across devices signed in to the same Apple account through <strong>iCloud Keychain</strong>. <strong>All such syncing occurs within your own iCloud space; we do not operate a separate cloud account to centrally store this synced content.</strong> You may disable syncing within the App at any time.</li>
+</ul>
+<hr>
+<h2>6. Where Data Is Stored and Cross-Border Transfers</h2>
+<p>Our servers and the artificial intelligence service providers we use may be located <strong>outside</strong> your country or region. Accordingly, when you use the relevant features of the App, some of your information may be transferred abroad and processed abroad.</p>
+<p>For users from the EEA, UK, and similar regions, when carrying out such cross-border transfers, we will adopt safeguards consistent with applicable law (such as the use of Standard Contractual Clauses) to protect your information. By using the App, you understand and agree to such necessary cross-border transfers.</p>
+<hr>
+<h2>7. Data Retention</h2>
+<ul>
+<li><strong>We retain your information only for as long as necessary to fulfill the purposes described in this Policy.</strong></li>
+<li><strong>Reading requests</strong> are used primarily to generate interpretations in real time; the interpretation records themselves are stored primarily on <strong>your own device</strong>, under your control, and you may delete them at any time.</li>
+<li><strong>Feedback information</strong> is retained for a reasonable period after processing is complete, to allow for ongoing follow-up and improvement.</li>
+<li>When information is no longer necessary for the above purposes, or when you exercise your right to deletion, we will delete or anonymize the relevant information within a reasonable period, except where retention is otherwise required by law.</li>
+</ul>
+<hr>
+<h2>8. Data Security</h2>
+<p>We adopt reasonable technical and organizational measures to protect your information, including: using <strong>HTTPS-encrypted transmission</strong> throughout; performing <strong>authentication and signature verification</strong> on requests that access the server; and storing sensitive asset information (reading-pass balance) in the device's <strong>Keychain</strong>.</p>
+<p>However, please understand that <strong>no environment on the internet is absolutely secure</strong>, and we cannot guarantee the one-hundred-percent security of information. Please safeguard your device and Apple account properly.</p>
+<hr>
+<h2>9. Your Rights</h2>
+<p>To the extent permitted by applicable law, you have the following rights with respect to your personal information:</p>
+<ul>
+<li><strong>Access and Obtain</strong>: To learn about and obtain a copy of the personal information we process about you;</li>
+<li><strong>Rectification</strong>: To correct inaccurate information;</li>
+<li><strong>Deletion</strong>: To request the deletion of your personal information (you may also delete reading records directly within the App);</li>
+<li><strong>Restriction of and Objection to Processing</strong>: To restrict or object to our processing of your information in certain circumstances;</li>
+<li><strong>Withdrawal of Consent</strong>: For processing based on your consent, you may withdraw it at any time, without affecting the lawfulness of processing carried out before the withdrawal;</li>
+<li><strong>Data Portability</strong>: Where technically feasible, to obtain the information you have provided in a structured, commonly used format;</li>
+<li><strong>Complaint</strong>: To lodge a complaint with the data protection supervisory authority in your jurisdiction.</li>
+</ul>
+<p>You may exercise the above rights via the in-app &quot;Profile → Feedback&quot; or through the contact methods set forth in Section 12. We will respond within the period prescribed by applicable law. You may also: delete reading records within the App, disable iCloud sync, and revoke the permissions granted to the App in the system &quot;Settings.&quot;</p>
+<hr>
+<h2>10. System Permissions</h2>
+<p>The App may request the following system permissions when you use the corresponding features. You may enable or disable them at any time in your device &quot;Settings&quot;:</p>
+<ul>
+<li><strong>Microphone</strong>: To let you enter the reading question you want to ask by voice;</li>
+<li><strong>Speech Recognition</strong>: To transcribe your voice into text questions;</li>
+<li><strong>Photos (Add Only)</strong>: To save images such as invitation cards to your photo library.</li>
+</ul>
+<p>The App <strong>does not request</strong> permissions such as camera, location, contacts, or photo library reading.</p>
+<hr>
+<h2>11. Children's Privacy</h2>
+<p>The App is not designed for children. <strong>We do not knowingly collect personal information from children.</strong> If you are a parent or guardian and discover that a child in your care has provided us with personal information without consent, please contact us as set forth in Section 12, and we will take measures to delete the relevant information. If you are a minor, please use the App with the consent and guidance of a parent or guardian.</p>
+<hr>
+<h2>12. Cookies and Tracking Technologies</h2>
+<p>The App is a native mobile application. <strong>It does not use cookies for tracking and does not perform cross-app or cross-website behavioral tracking.</strong></p>
+<hr>
+<h2>13. Updates to This Policy</h2>
+<p>We may update this Policy from time to time. The updated Policy will be published by means of an in-app notice and by updating the &quot;Last Updated&quot; date. <strong>If the changes are material, we will notify you by a more prominent means.</strong> Your continued use of the App after an update takes effect constitutes acceptance of the updated Policy.</p>
+<hr>
+<h2>14. Contact Us</h2>
+<p>If you have any questions, requests, or complaints regarding this Policy, your personal information, or your rights, you may contact us via the in-app &quot;Profile → Feedback,&quot; and we will respond as soon as possible.</p>
+<hr>
+<p><em>The final interpretation of this Policy, to the extent consistent with applicable law, belongs to the Developer.</em></p>
+</article></main>
+</body>
+</html>

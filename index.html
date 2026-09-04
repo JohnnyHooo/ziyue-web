@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>紫月塔罗 · AI 塔罗占卜</title>
+<meta name="description" content="紫月塔罗——你的 AI 塔罗占卜师。心里有事，就问问塔罗。仅供娱乐。">
+<meta name="robots" content="index,follow">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<style>
+:root{
+  --bg:#FAFAF8; --card:#FFFFFF; --ink:#231F2A; --muted:#6E687A; --hair:#ECE8E2;
+  --accent:#6E52A6; --accent-soft:#F1EDF7; --maxw:720px;
+  --serif:"Songti SC","Noto Serif SC","SimSun",ui-serif,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans","Apple SD Gothic Neo","Microsoft YaHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0F0E15; --card:#17161F; --ink:#ECEAF2; --muted:#938DA6; --hair:#26232F; --accent:#B9A7EC; --accent-soft:#1D1B27; }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.8;font-size:16px;
+  -webkit-font-smoothing:antialiased;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+/* 法务文档正文(纯单页) */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:20px 24px 72px}
+.doc h1{font-family:var(--serif);font-size:27px;line-height:1.35;font-weight:700;margin:8px 0 2px}
+.doc h2{font-family:var(--serif);font-size:20px;font-weight:700;margin:38px 0 12px;padding-left:12px;border-left:3px solid var(--accent)}
+.doc h3{font-size:16px;font-weight:700;margin:24px 0 8px;color:var(--ink)}
+.doc p{margin:12px 0;color:var(--ink)} .doc strong{font-weight:700;color:var(--ink)}
+.doc ul,.doc ol{margin:12px 0;padding-left:22px} .doc li{margin:7px 0}
+.doc blockquote{margin:16px 0;padding:12px 16px;background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;color:var(--muted);font-size:14.5px}
+.doc blockquote p{margin:4px 0}
+.doc hr{border:0;border-top:1px solid var(--hair);margin:32px 0}
+.doc em{color:var(--muted);font-style:normal}
+.doc > p:first-of-type,.doc > p:nth-of-type(2){color:var(--muted);font-size:13.5px;margin:2px 0}
+
+/* 官网首页:仿 App 首页 Banner(黑底 + 紫微光 + 底部发光 + 星点 + 紫月球) */
+body.home-page{ --ink:#F4F0FB; --muted:rgba(240,236,250,.55); --hair:rgba(255,255,255,.14); --card:#191521; --accent:#C6A8FF;
+  color:#fff; background:#050409;
+  background-image:radial-gradient(640px 500px at 50% 20%, rgba(139,91,214,.24), transparent 62%), radial-gradient(1000px 360px at 50% 118%, rgba(139,91,214,.42), transparent 72%);
+  background-attachment:fixed; }
+body.home-page::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(1.3px 1.3px at 12% 22%, rgba(255,255,255,.55), transparent),
+    radial-gradient(1px 1px at 82% 16%, rgba(255,255,255,.42), transparent),
+    radial-gradient(1px 1px at 67% 33%, rgba(255,255,255,.36), transparent),
+    radial-gradient(1.4px 1.4px at 25% 60%, rgba(255,255,255,.32), transparent),
+    radial-gradient(1px 1px at 90% 56%, rgba(255,255,255,.36), transparent),
+    radial-gradient(1px 1px at 41% 12%, rgba(255,255,255,.3), transparent),
+    radial-gradient(1px 1px at 57% 74%, rgba(255,255,255,.28), transparent),
+    radial-gradient(1.2px 1.2px at 8% 46%, rgba(255,255,255,.32), transparent),
+    radial-gradient(1px 1px at 74% 82%, rgba(255,255,255,.26), transparent);}
+body.home-page .appstore{background:#fff;color:#141018}
+.lp{position:relative;z-index:1;min-height:100dvh;display:flex;flex-direction:column;max-width:600px;margin:0 auto;padding:0 30px}
+/* 右上角语言下拉(details/summary,免 JS 展开) */
+.langsw{position:fixed;top:14px;right:16px;z-index:20}
+.langsw summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+  padding:7px 12px;border-radius:999px;font-size:13px;color:var(--ink);
+  background:rgba(255,255,255,.07);border:1px solid var(--hair);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.langsw summary::-webkit-details-marker{display:none} .langsw summary::marker{content:""}
+.langsw .globe{width:15px;height:15px;opacity:.85} .langsw .cur{opacity:.95}
+.langsw .chev{width:11px;height:11px;opacity:.6;transition:transform .2s}
+.langsw[open] .chev{transform:rotate(180deg)}
+.langmenu{position:absolute;top:calc(100% + 8px);right:0;min-width:134px;
+  background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:6px;
+  box-shadow:0 18px 44px rgba(0,0,0,.35);display:flex;flex-direction:column}
+.langmenu a{padding:9px 12px;border-radius:9px;color:var(--muted);font-size:13.5px}
+.langmenu a:hover{background:rgba(255,255,255,.08);color:var(--ink);text-decoration:none}
+.langmenu a.on{color:var(--ink);font-weight:600}
+.lp-hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:36px 0 44px}
+.orb{width:min(300px,74vw);height:min(320px,78vw);display:block;margin:0 auto 4px;pointer-events:none}
+.lp-title{font-family:var(--serif);font-size:27px;font-weight:600;line-height:1.4;letter-spacing:.02em;margin:6px 0 0;color:var(--ink);transition:opacity .38s ease;min-height:2.6em;display:flex;align-items:center;max-width:520px}
+.lp-cta{margin:34px 0 0}
+.lp-foot{text-align:center;padding:22px 24px 34px;color:var(--muted);font-size:13px}
+.lp-foot .lp-ent{margin:0 auto 14px;font-size:11.5px;line-height:1.85;letter-spacing:.01em;opacity:.5;max-width:440px}
+.lp-foot .foot-nav{margin-bottom:10px} .lp-foot a{color:var(--muted)} .lp-foot .sep{margin:0 12px;opacity:.4}
+.lp-foot .cr{opacity:.6;font-size:12px;letter-spacing:.02em}
+
+/* App Store 按钮 */
+.appstore{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--bg);padding:11px 20px 11px 16px;border-radius:14px;text-decoration:none}
+.appstore:hover{text-decoration:none;opacity:.9} .appstore svg{flex:none}
+.as-txt{display:flex;flex-direction:column;line-height:1.12;text-align:left}
+.as-txt small{font-size:10px;opacity:.9;font-weight:400} .as-txt b{font-size:17px;font-weight:600;letter-spacing:.2px}
+/* hover 二维码浮窗(构建期内联 SVG) */
+.dl{position:relative;display:inline-block}
+.qrpop{position:absolute;bottom:calc(100% + 12px);left:50%;z-index:5;transform:translateX(-50%) translateY(6px) scale(.96);transform-origin:bottom center;
+  background:var(--card);border:1px solid var(--hair);border-radius:16px;padding:12px;box-shadow:0 16px 44px rgba(40,28,72,.18);
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease, transform .2s ease, visibility .2s}
+.dl:hover .qrpop, .dl:focus-within .qrpop{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0) scale(1)}
+.qrpop::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:7px solid transparent;border-top-color:var(--card)}
+.qr{width:132px;height:132px;background:#fff;border-radius:9px;padding:9px;box-sizing:border-box} .qr svg{display:block;width:100%;height:100%}
+@media (hover:none){ .qrpop{display:none} }</style>
+</head>
+<body class="home-page">
+<script>
+(function(){try{
+  if(localStorage.getItem('ziyue.lang'))return;
+  var m={en:'en',ja:'ja',ko:'ko',it:'it',th:'th'};
+  var l=(navigator.language||'').slice(0,2).toLowerCase();
+  if(m[l])location.replace('/'+m[l]+'/');
+}catch(e){}})();
+</script><main class="lp">
+  <details class="langsw"><summary aria-label="Language"><svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg><span class="cur">中文</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="langmenu"><a class="on" href="/" onclick="try{localStorage.setItem('ziyue.lang','zh')}catch(e){}">中文</a><a class="" href="/en/" onclick="try{localStorage.setItem('ziyue.lang','en')}catch(e){}">English</a><a class="" href="/ja/" onclick="try{localStorage.setItem('ziyue.lang','ja')}catch(e){}">日本語</a><a class="" href="/ko/" onclick="try{localStorage.setItem('ziyue.lang','ko')}catch(e){}">한국어</a><a class="" href="/it/" onclick="try{localStorage.setItem('ziyue.lang','it')}catch(e){}">Italiano</a><a class="" href="/th/" onclick="try{localStorage.setItem('ziyue.lang','th')}catch(e){}">ไทย</a></div></details>
+  <div class="lp-hero">
+    <canvas id="orb" class="orb" aria-hidden="true"></canvas>
+    <h1 class="lp-title" id="headline">心里有事，就问问塔罗</h1>
+    <div class="lp-cta">
+      <div class="dl">
+        <a class="appstore" href="https://apps.apple.com/app/id6784248226" target="_blank" rel="noopener"><svg viewBox="0 0 384 512" width="17" height="21" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM262.1 104.5c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="as-txt"><small>Download on the</small><b>App Store</b></span></a>
+        <div class="qrpop" role="tooltip"><div class="qr"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 116 116"  preserveAspectRatio="xMinYMin meet"><rect width="100%" height="100%" fill="white" cx="0" cy="0"/><path d="M0,0l4,0 0,4 -4,0 0,-4z M4,0l4,0 0,4 -4,0 0,-4z M8,0l4,0 0,4 -4,0 0,-4z M12,0l4,0 0,4 -4,0 0,-4z M16,0l4,0 0,4 -4,0 0,-4z M20,0l4,0 0,4 -4,0 0,-4z M24,0l4,0 0,4 -4,0 0,-4z M32,0l4,0 0,4 -4,0 0,-4z M48,0l4,0 0,4 -4,0 0,-4z M56,0l4,0 0,4 -4,0 0,-4z M68,0l4,0 0,4 -4,0 0,-4z M72,0l4,0 0,4 -4,0 0,-4z M76,0l4,0 0,4 -4,0 0,-4z M88,0l4,0 0,4 -4,0 0,-4z M92,0l4,0 0,4 -4,0 0,-4z M96,0l4,0 0,4 -4,0 0,-4z M100,0l4,0 0,4 -4,0 0,-4z M104,0l4,0 0,4 -4,0 0,-4z M108,0l4,0 0,4 -4,0 0,-4z M112,0l4,0 0,4 -4,0 0,-4z M0,4l4,0 0,4 -4,0 0,-4z M24,4l4,0 0,4 -4,0 0,-4z M32,4l4,0 0,4 -4,0 0,-4z M40,4l4,0 0,4 -4,0 0,-4z M48,4l4,0 0,4 -4,0 0,-4z M52,4l4,0 0,4 -4,0 0,-4z M56,4l4,0 0,4 -4,0 0,-4z M72,4l4,0 0,4 -4,0 0,-4z M88,4l4,0 0,4 -4,0 0,-4z M112,4l4,0 0,4 -4,0 0,-4z M0,8l4,0 0,4 -4,0 0,-4z M8,8l4,0 0,4 -4,0 0,-4z M12,8l4,0 0,4 -4,0 0,-4z M16,8l4,0 0,4 -4,0 0,-4z M24,8l4,0 0,4 -4,0 0,-4z M36,8l4,0 0,4 -4,0 0,-4z M40,8l4,0 0,4 -4,0 0,-4z M44,8l4,0 0,4 -4,0 0,-4z M52,8l4,0 0,4 -4,0 0,-4z M64,8l4,0 0,4 -4,0 0,-4z M72,8l4,0 0,4 -4,0 0,-4z M76,8l4,0 0,4 -4,0 0,-4z M80,8l4,0 0,4 -4,0 0,-4z M88,8l4,0 0,4 -4,0 0,-4z M96,8l4,0 0,4 -4,0 0,-4z M100,8l4,0 0,4 -4,0 0,-4z M104,8l4,0 0,4 -4,0 0,-4z M112,8l4,0 0,4 -4,0 0,-4z M0,12l4,0 0,4 -4,0 0,-4z M8,12l4,0 0,4 -4,0 0,-4z M12,12l4,0 0,4 -4,0 0,-4z M16,12l4,0 0,4 -4,0 0,-4z M24,12l4,0 0,4 -4,0 0,-4z M32,12l4,0 0,4 -4,0 0,-4z M52,12l4,0 0,4 -4,0 0,-4z M64,12l4,0 0,4 -4,0 0,-4z M68,12l4,0 0,4 -4,0 0,-4z M76,12l4,0 0,4 -4,0 0,-4z M88,12l4,0 0,4 -4,0 0,-4z M96,12l4,0 0,4 -4,0 0,-4z M100,12l4,0 0,4 -4,0 0,-4z M104,12l4,0 0,4 -4,0 0,-4z M112,12l4,0 0,4 -4,0 0,-4z M0,16l4,0 0,4 -4,0 0,-4z M8,16l4,0 0,4 -4,0 0,-4z M12,16l4,0 0,4 -4,0 0,-4z M16,16l4,0 0,4 -4,0 0,-4z M24,16l4,0 0,4 -4,0 0,-4z M36,16l4,0 0,4 -4,0 0,-4z M44,16l4,0 0,4 -4,0 0,-4z M60,16l4,0 0,4 -4,0 0,-4z M68,16l4,0 0,4 -4,0 0,-4z M76,16l4,0 0,4 -4,0 0,-4z M88,16l4,0 0,4 -4,0 0,-4z M96,16l4,0 0,4 -4,0 0,-4z M100,16l4,0 0,4 -4,0 0,-4z M104,16l4,0 0,4 -4,0 0,-4z M112,16l4,0 0,4 -4,0 0,-4z M0,20l4,0 0,4 -4,0 0,-4z M24,20l4,0 0,4 -4,0 0,-4z M48,20l4,0 0,4 -4,0 0,-4z M64,20l4,0 0,4 -4,0 0,-4z M76,20l4,0 0,4 -4,0 0,-4z M80,20l4,0 0,4 -4,0 0,-4z M88,20l4,0 0,4 -4,0 0,-4z M112,20l4,0 0,4 -4,0 0,-4z M0,24l4,0 0,4 -4,0 0,-4z M4,24l4,0 0,4 -4,0 0,-4z M8,24l4,0 0,4 -4,0 0,-4z M12,24l4,0 0,4 -4,0 0,-4z M16,24l4,0 0,4 -4,0 0,-4z M20,24l4,0 0,4 -4,0 0,-4z M24,24l4,0 0,4 -4,0 0,-4z M32,24l4,0 0,4 -4,0 0,-4z M40,24l4,0 0,4 -4,0 0,-4z M48,24l4,0 0,4 -4,0 0,-4z M56,24l4,0 0,4 -4,0 0,-4z M64,24l4,0 0,4 -4,0 0,-4z M72,24l4,0 0,4 -4,0 0,-4z M80,24l4,0 0,4 -4,0 0,-4z M88,24l4,0 0,4 -4,0 0,-4z M92,24l4,0 0,4 -4,0 0,-4z M96,24l4,0 0,4 -4,0 0,-4z M100,24l4,0 0,4 -4,0 0,-4z M104,24l4,0 0,4 -4,0 0,-4z M108,24l4,0 0,4 -4,0 0,-4z M112,24l4,0 0,4 -4,0 0,-4z M32,28l4,0 0,4 -4,0 0,-4z M40,28l4,0 0,4 -4,0 0,-4z M44,28l4,0 0,4 -4,0 0,-4z M48,28l4,0 0,4 -4,0 0,-4z M56,28l4,0 0,4 -4,0 0,-4z M64,28l4,0 0,4 -4,0 0,-4z M68,28l4,0 0,4 -4,0 0,-4z M72,28l4,0 0,4 -4,0 0,-4z M76,28l4,0 0,4 -4,0 0,-4z M0,32l4,0 0,4 -4,0 0,-4z M8,32l4,0 0,4 -4,0 0,-4z M12,32l4,0 0,4 -4,0 0,-4z M20,32l4,0 0,4 -4,0 0,-4z M24,32l4,0 0,4 -4,0 0,-4z M28,32l4,0 0,4 -4,0 0,-4z M40,32l4,0 0,4 -4,0 0,-4z M44,32l4,0 0,4 -4,0 0,-4z M48,32l4,0 0,4 -4,0 0,-4z M68,32l4,0 0,4 -4,0 0,-4z M72,32l4,0 0,4 -4,0 0,-4z M88,32l4,0 0,4 -4,0 0,-4z M100,32l4,0 0,4 -4,0 0,-4z M108,32l4,0 0,4 -4,0 0,-4z M112,32l4,0 0,4 -4,0 0,-4z M16,36l4,0 0,4 -4,0 0,-4z M36,36l4,0 0,4 -4,0 0,-4z M40,36l4,0 0,4 -4,0 0,-4z M56,36l4,0 0,4 -4,0 0,-4z M76,36l4,0 0,4 -4,0 0,-4z M80,36l4,0 0,4 -4,0 0,-4z M84,36l4,0 0,4 -4,0 0,-4z M88,36l4,0 0,4 -4,0 0,-4z M96,36l4,0 0,4 -4,0 0,-4z M112,36l4,0 0,4 -4,0 0,-4z M0,40l4,0 0,4 -4,0 0,-4z M8,40l4,0 0,4 -4,0 0,-4z M16,40l4,0 0,4 -4,0 0,-4z M24,40l4,0 0,4 -4,0 0,-4z M28,40l4,0 0,4 -4,0 0,-4z M32,40l4,0 0,4 -4,0 0,-4z M36,40l4,0 0,4 -4,0 0,-4z M44,40l4,0 0,4 -4,0 0,-4z M48,40l4,0 0,4 -4,0 0,-4z M52,40l4,0 0,4 -4,0 0,-4z M68,40l4,0 0,4 -4,0 0,-4z M84,40l4,0 0,4 -4,0 0,-4z M88,40l4,0 0,4 -4,0 0,-4z M96,40l4,0 0,4 -4,0 0,-4z M104,40l4,0 0,4 -4,0 0,-4z M108,40l4,0 0,4 -4,0 0,-4z M0,44l4,0 0,4 -4,0 0,-4z M16,44l4,0 0,4 -4,0 0,-4z M20,44l4,0 0,4 -4,0 0,-4z M32,44l4,0 0,4 -4,0 0,-4z M44,44l4,0 0,4 -4,0 0,-4z M48,44l4,0 0,4 -4,0 0,-4z M52,44l4,0 0,4 -4,0 0,-4z M60,44l4,0 0,4 -4,0 0,-4z M64,44l4,0 0,4 -4,0 0,-4z M112,44l4,0 0,4 -4,0 0,-4z M0,48l4,0 0,4 -4,0 0,-4z M4,48l4,0 0,4 -4,0 0,-4z M12,48l4,0 0,4 -4,0 0,-4z M24,48l4,0 0,4 -4,0 0,-4z M36,48l4,0 0,4 -4,0 0,-4z M44,48l4,0 0,4 -4,0 0,-4z M60,48l4,0 0,4 -4,0 0,-4z M64,48l4,0 0,4 -4,0 0,-4z M68,48l4,0 0,4 -4,0 0,-4z M92,48l4,0 0,4 -4,0 0,-4z M100,48l4,0 0,4 -4,0 0,-4z M104,48l4,0 0,4 -4,0 0,-4z M0,52l4,0 0,4 -4,0 0,-4z M4,52l4,0 0,4 -4,0 0,-4z M16,52l4,0 0,4 -4,0 0,-4z M20,52l4,0 0,4 -4,0 0,-4z M36,52l4,0 0,4 -4,0 0,-4z M40,52l4,0 0,4 -4,0 0,-4z M52,52l4,0 0,4 -4,0 0,-4z M56,52l4,0 0,4 -4,0 0,-4z M60,52l4,0 0,4 -4,0 0,-4z M68,52l4,0 0,4 -4,0 0,-4z M72,52l4,0 0,4 -4,0 0,-4z M76,52l4,0 0,4 -4,0 0,-4z M88,52l4,0 0,4 -4,0 0,-4z M104,52l4,0 0,4 -4,0 0,-4z M108,52l4,0 0,4 -4,0 0,-4z M112,52l4,0 0,4 -4,0 0,-4z M0,56l4,0 0,4 -4,0 0,-4z M12,56l4,0 0,4 -4,0 0,-4z M16,56l4,0 0,4 -4,0 0,-4z M24,56l4,0 0,4 -4,0 0,-4z M32,56l4,0 0,4 -4,0 0,-4z M40,56l4,0 0,4 -4,0 0,-4z M56,56l4,0 0,4 -4,0 0,-4z M64,56l4,0 0,4 -4,0 0,-4z M76,56l4,0 0,4 -4,0 0,-4z M88,56l4,0 0,4 -4,0 0,-4z M104,56l4,0 0,4 -4,0 0,-4z M108,56l4,0 0,4 -4,0 0,-4z M112,56l4,0 0,4 -4,0 0,-4z M0,60l4,0 0,4 -4,0 0,-4z M8,60l4,0 0,4 -4,0 0,-4z M12,60l4,0 0,4 -4,0 0,-4z M16,60l4,0 0,4 -4,0 0,-4z M20,60l4,0 0,4 -4,0 0,-4z M28,60l4,0 0,4 -4,0 0,-4z M32,60l4,0 0,4 -4,0 0,-4z M36,60l4,0 0,4 -4,0 0,-4z M40,60l4,0 0,4 -4,0 0,-4z M48,60l4,0 0,4 -4,0 0,-4z M52,60l4,0 0,4 -4,0 0,-4z M60,60l4,0 0,4 -4,0 0,-4z M64,60l4,0 0,4 -4,0 0,-4z M72,60l4,0 0,4 -4,0 0,-4z M76,60l4,0 0,4 -4,0 0,-4z M80,60l4,0 0,4 -4,0 0,-4z M96,60l4,0 0,4 -4,0 0,-4z M108,60l4,0 0,4 -4,0 0,-4z M0,64l4,0 0,4 -4,0 0,-4z M8,64l4,0 0,4 -4,0 0,-4z M20,64l4,0 0,4 -4,0 0,-4z M24,64l4,0 0,4 -4,0 0,-4z M48,64l4,0 0,4 -4,0 0,-4z M64,64l4,0 0,4 -4,0 0,-4z M76,64l4,0 0,4 -4,0 0,-4z M80,64l4,0 0,4 -4,0 0,-4z M84,64l4,0 0,4 -4,0 0,-4z M96,64l4,0 0,4 -4,0 0,-4z M100,64l4,0 0,4 -4,0 0,-4z M108,64l4,0 0,4 -4,0 0,-4z M8,68l4,0 0,4 -4,0 0,-4z M16,68l4,0 0,4 -4,0 0,-4z M28,68l4,0 0,4 -4,0 0,-4z M32,68l4,0 0,4 -4,0 0,-4z M52,68l4,0 0,4 -4,0 0,-4z M60,68l4,0 0,4 -4,0 0,-4z M64,68l4,0 0,4 -4,0 0,-4z M68,68l4,0 0,4 -4,0 0,-4z M84,68l4,0 0,4 -4,0 0,-4z M92,68l4,0 0,4 -4,0 0,-4z M100,68l4,0 0,4 -4,0 0,-4z M104,68l4,0 0,4 -4,0 0,-4z M108,68l4,0 0,4 -4,0 0,-4z M0,72l4,0 0,4 -4,0 0,-4z M8,72l4,0 0,4 -4,0 0,-4z M12,72l4,0 0,4 -4,0 0,-4z M24,72l4,0 0,4 -4,0 0,-4z M32,72l4,0 0,4 -4,0 0,-4z M36,72l4,0 0,4 -4,0 0,-4z M48,72l4,0 0,4 -4,0 0,-4z M60,72l4,0 0,4 -4,0 0,-4z M68,72l4,0 0,4 -4,0 0,-4z M80,72l4,0 0,4 -4,0 0,-4z M84,72l4,0 0,4 -4,0 0,-4z M96,72l4,0 0,4 -4,0 0,-4z M104,72l4,0 0,4 -4,0 0,-4z M32,76l4,0 0,4 -4,0 0,-4z M44,76l4,0 0,4 -4,0 0,-4z M48,76l4,0 0,4 -4,0 0,-4z M68,76l4,0 0,4 -4,0 0,-4z M72,76l4,0 0,4 -4,0 0,-4z M92,76l4,0 0,4 -4,0 0,-4z M104,76l4,0 0,4 -4,0 0,-4z M4,80l4,0 0,4 -4,0 0,-4z M16,80l4,0 0,4 -4,0 0,-4z M24,80l4,0 0,4 -4,0 0,-4z M28,80l4,0 0,4 -4,0 0,-4z M32,80l4,0 0,4 -4,0 0,-4z M36,80l4,0 0,4 -4,0 0,-4z M40,80l4,0 0,4 -4,0 0,-4z M44,80l4,0 0,4 -4,0 0,-4z M48,80l4,0 0,4 -4,0 0,-4z M52,80l4,0 0,4 -4,0 0,-4z M60,80l4,0 0,4 -4,0 0,-4z M68,80l4,0 0,4 -4,0 0,-4z M72,80l4,0 0,4 -4,0 0,-4z M76,80l4,0 0,4 -4,0 0,-4z M80,80l4,0 0,4 -4,0 0,-4z M84,80l4,0 0,4 -4,0 0,-4z M88,80l4,0 0,4 -4,0 0,-4z M92,80l4,0 0,4 -4,0 0,-4z M96,80l4,0 0,4 -4,0 0,-4z M100,80l4,0 0,4 -4,0 0,-4z M104,80l4,0 0,4 -4,0 0,-4z M32,84l4,0 0,4 -4,0 0,-4z M36,84l4,0 0,4 -4,0 0,-4z M40,84l4,0 0,4 -4,0 0,-4z M48,84l4,0 0,4 -4,0 0,-4z M52,84l4,0 0,4 -4,0 0,-4z M56,84l4,0 0,4 -4,0 0,-4z M68,84l4,0 0,4 -4,0 0,-4z M72,84l4,0 0,4 -4,0 0,-4z M80,84l4,0 0,4 -4,0 0,-4z M96,84l4,0 0,4 -4,0 0,-4z M100,84l4,0 0,4 -4,0 0,-4z M104,84l4,0 0,4 -4,0 0,-4z M108,84l4,0 0,4 -4,0 0,-4z M112,84l4,0 0,4 -4,0 0,-4z M0,88l4,0 0,4 -4,0 0,-4z M4,88l4,0 0,4 -4,0 0,-4z M8,88l4,0 0,4 -4,0 0,-4z M12,88l4,0 0,4 -4,0 0,-4z M16,88l4,0 0,4 -4,0 0,-4z M20,88l4,0 0,4 -4,0 0,-4z M24,88l4,0 0,4 -4,0 0,-4z M32,88l4,0 0,4 -4,0 0,-4z M36,88l4,0 0,4 -4,0 0,-4z M40,88l4,0 0,4 -4,0 0,-4z M44,88l4,0 0,4 -4,0 0,-4z M52,88l4,0 0,4 -4,0 0,-4z M64,88l4,0 0,4 -4,0 0,-4z M68,88l4,0 0,4 -4,0 0,-4z M76,88l4,0 0,4 -4,0 0,-4z M80,88l4,0 0,4 -4,0 0,-4z M88,88l4,0 0,4 -4,0 0,-4z M96,88l4,0 0,4 -4,0 0,-4z M100,88l4,0 0,4 -4,0 0,-4z M108,88l4,0 0,4 -4,0 0,-4z M0,92l4,0 0,4 -4,0 0,-4z M24,92l4,0 0,4 -4,0 0,-4z M32,92l4,0 0,4 -4,0 0,-4z M40,92l4,0 0,4 -4,0 0,-4z M60,92l4,0 0,4 -4,0 0,-4z M72,92l4,0 0,4 -4,0 0,-4z M80,92l4,0 0,4 -4,0 0,-4z M96,92l4,0 0,4 -4,0 0,-4z M100,92l4,0 0,4 -4,0 0,-4z M108,92l4,0 0,4 -4,0 0,-4z M0,96l4,0 0,4 -4,0 0,-4z M8,96l4,0 0,4 -4,0 0,-4z M12,96l4,0 0,4 -4,0 0,-4z M16,96l4,0 0,4 -4,0 0,-4z M24,96l4,0 0,4 -4,0 0,-4z M40,96l4,0 0,4 -4,0 0,-4z M56,96l4,0 0,4 -4,0 0,-4z M60,96l4,0 0,4 -4,0 0,-4z M64,96l4,0 0,4 -4,0 0,-4z M68,96l4,0 0,4 -4,0 0,-4z M80,96l4,0 0,4 -4,0 0,-4z M84,96l4,0 0,4 -4,0 0,-4z M88,96l4,0 0,4 -4,0 0,-4z M92,96l4,0 0,4 -4,0 0,-4z M96,96l4,0 0,4 -4,0 0,-4z M104,96l4,0 0,4 -4,0 0,-4z M0,100l4,0 0,4 -4,0 0,-4z M8,100l4,0 0,4 -4,0 0,-4z M12,100l4,0 0,4 -4,0 0,-4z M16,100l4,0 0,4 -4,0 0,-4z M24,100l4,0 0,4 -4,0 0,-4z M32,100l4,0 0,4 -4,0 0,-4z M40,100l4,0 0,4 -4,0 0,-4z M48,100l4,0 0,4 -4,0 0,-4z M56,100l4,0 0,4 -4,0 0,-4z M60,100l4,0 0,4 -4,0 0,-4z M68,100l4,0 0,4 -4,0 0,-4z M80,100l4,0 0,4 -4,0 0,-4z M84,100l4,0 0,4 -4,0 0,-4z M96,100l4,0 0,4 -4,0 0,-4z M100,100l4,0 0,4 -4,0 0,-4z M112,100l4,0 0,4 -4,0 0,-4z M0,104l4,0 0,4 -4,0 0,-4z M8,104l4,0 0,4 -4,0 0,-4z M12,104l4,0 0,4 -4,0 0,-4z M16,104l4,0 0,4 -4,0 0,-4z M24,104l4,0 0,4 -4,0 0,-4z M32,104l4,0 0,4 -4,0 0,-4z M64,104l4,0 0,4 -4,0 0,-4z M72,104l4,0 0,4 -4,0 0,-4z M80,104l4,0 0,4 -4,0 0,-4z M84,104l4,0 0,4 -4,0 0,-4z M92,104l4,0 0,4 -4,0 0,-4z M104,104l4,0 0,4 -4,0 0,-4z M112,104l4,0 0,4 -4,0 0,-4z M0,108l4,0 0,4 -4,0 0,-4z M24,108l4,0 0,4 -4,0 0,-4z M36,108l4,0 0,4 -4,0 0,-4z M40,108l4,0 0,4 -4,0 0,-4z M52,108l4,0 0,4 -4,0 0,-4z M56,108l4,0 0,4 -4,0 0,-4z M64,108l4,0 0,4 -4,0 0,-4z M72,108l4,0 0,4 -4,0 0,-4z M80,108l4,0 0,4 -4,0 0,-4z M84,108l4,0 0,4 -4,0 0,-4z M92,108l4,0 0,4 -4,0 0,-4z M96,108l4,0 0,4 -4,0 0,-4z M100,108l4,0 0,4 -4,0 0,-4z M108,108l4,0 0,4 -4,0 0,-4z M0,112l4,0 0,4 -4,0 0,-4z M4,112l4,0 0,4 -4,0 0,-4z M8,112l4,0 0,4 -4,0 0,-4z M12,112l4,0 0,4 -4,0 0,-4z M16,112l4,0 0,4 -4,0 0,-4z M20,112l4,0 0,4 -4,0 0,-4z M24,112l4,0 0,4 -4,0 0,-4z M32,112l4,0 0,4 -4,0 0,-4z M36,112l4,0 0,4 -4,0 0,-4z M52,112l4,0 0,4 -4,0 0,-4z M64,112l4,0 0,4 -4,0 0,-4z M76,112l4,0 0,4 -4,0 0,-4z M80,112l4,0 0,4 -4,0 0,-4z M92,112l4,0 0,4 -4,0 0,-4z M108,112l4,0 0,4 -4,0 0,-4z " stroke="transparent" fill="black"/></svg></div></div>
+      </div>
+    </div>
+  </div>
+  <footer class="lp-foot">
+    <p class="lp-ent">本应用仅供娱乐，占卜内容不构成任何专业建议，不能替代医疗、心理、法律、财务等专业意见，请勿作为决策依据。</p>
+    <div class="foot-nav"><a href="/terms/">用户协议</a><span class="sep">·</span><a href="/privacy/">隐私政策</a></div>
+    <div class="cr">© 2026 紫月塔罗</div>
+  </footer>
+</main>
+<script src="/orb.js" defer></script>
+<script>
+(function(){
+  var hs=["心里有事，就问问塔罗","此刻，你最想问什么","把心里的事，轻轻放下来","有什么，正悬在你心上","今天，想为自己问点什么","让塔罗，陪你理清思绪","想问的事，从这里开始","静下心，问问此刻的自己"];
+  var el=document.getElementById('headline');
+  if(el&&hs.length>1){var i=0;setInterval(function(){i=(i+1)%hs.length;el.style.opacity='0';
+    setTimeout(function(){el.textContent=hs[i];el.style.opacity='1';},380);},5200);}
+  document.addEventListener('click',function(e){
+    var d=document.querySelector('.langsw[open]');
+    if(d&&!d.contains(e.target))d.removeAttribute('open');
+  });
+})();
+</script>
+</body>
+</html>
